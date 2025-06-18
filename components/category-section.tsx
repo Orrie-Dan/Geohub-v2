@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Search } from "lucide-react"
+import { Search, Shield, TrendingUp, User2  } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import CategoryCard from "@/components/category-card"
@@ -17,7 +17,7 @@ const categories = [
     description: "Crop monitoring, soil analysis, and agricultural planning tools",
     color: "green",
     applications: 4,
-    image: "/images/agriculture.jpeg",
+    image: "/images/agriculture.jpg",
     
   },
   {
@@ -26,7 +26,7 @@ const categories = [
     description: "Urban planning, construction, and infrastructure management",
     color: "blue",
     applications:4,
-    image: "/images/urban-planning.jpeg",
+    image: "/images/kigali.jpg",
   },
   {
     title: "Environment",
@@ -38,11 +38,11 @@ const categories = [
   },
   {
     title: "Disaster Management",
-    icon: "shield",
+    icon: Shield,
     description: "Early warning systems and disaster response planning",
     color: "red",
     applications: 6 ,
-    image: "/images/flood-risk.jpeg",
+    image: "/images/floods.png",
     path: "app/category/disaster-management/page.tsx",
   },
   {
@@ -88,7 +88,7 @@ const categories = [
   },
   {
     title: "Population",
-    icon: "users",
+    icon: User2,
     description: "Demographic data and population distribution analysis",
     color: "orange",
     applications: 1,
@@ -96,7 +96,7 @@ const categories = [
   },
   {
     title: "Finance ",
-    icon: "dollar-sign",
+    icon: TrendingUp,
     description: "Financial services mapping",
     color: "yellow",
     applications: 1,
@@ -104,7 +104,7 @@ const categories = [
   },
   {
     title: "Trade",
-    icon: "shipping-fast",
+    icon: TrendingUp,
     description: "Market analysis and trade routes mapping",
     color: "yellow",
     applications: 1,
@@ -148,44 +148,44 @@ export default function CategorySection() {
   return (
     <div className="container relative z-10 px-4 mx-auto">
       <ScrollReveal>
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Explore Categories</h2>
-          <p className="text-lg text-slate-300 max-w-3xl mx-auto">
+        <div className="text-center mb-8 sm:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">Explore Categories</h2>
+          <p className="text-base sm:text-lg text-white max-w-3xl mx-auto px-4">
             Discover geospatial applications across various sectors to support Rwanda's development goals
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto mt-8">
+          <div className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto mt-6 sm:mt-8 px-4">
             <div className="relative flex-grow">
               <Input
                 type="text"
                 placeholder="Search categories..."
-                className="pl-12 py-6 text-lg bg-slate-800/50 backdrop-blur-md border-slate-700 text-white"
+                className="pl-12 py-4 sm:py-6 text-base sm:text-lg bg-white/80 backdrop-blur-md border-slate-200 text-slate-800"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
               <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" />
             </div>
-            <div className="flex gap-2">
+            <div className="flex flex-wrap sm:flex-nowrap gap-2 justify-center sm:justify-start">
               <Button
                 variant={activeFilter === "all" ? "default" : "outline"}
                 onClick={() => setActiveFilter("all")}
-                className={activeFilter === "all" ? "bg-sky-600 hover:bg-sky-700" : "border-slate-700 text-slate-300"}
+                className={`text-sm sm:text-base ${activeFilter === "all" ? "bg-sky-600 hover:bg-sky-700" : "border-slate-200 text-slate-600"}`}
               >
                 All
               </Button>
               <Button
                 variant={activeFilter === "name" ? "default" : "outline"}
                 onClick={() => setActiveFilter("name")}
-                className={activeFilter === "name" ? "bg-sky-600 hover:bg-sky-700" : "border-slate-700 text-slate-300"}
+                className={`text-sm sm:text-base ${activeFilter === "name" ? "bg-sky-600 hover:bg-sky-700" : "border-slate-200 text-slate-600"}`}
               >
                 A-Z
               </Button>
               <Button
                 variant={activeFilter === "popular" ? "default" : "outline"}
                 onClick={() => setActiveFilter("popular")}
-                className={
-                  activeFilter === "popular" ? "bg-sky-600 hover:bg-sky-700" : "border-slate-700 text-slate-300"
-                }
+                className={`text-sm sm:text-base ${
+                  activeFilter === "popular" ? "bg-sky-600 hover:bg-sky-700" : "border-slate-200 text-slate-600"
+                }`}
               >
                 Popular
               </Button>
@@ -194,7 +194,7 @@ export default function CategorySection() {
         </div>
       </ScrollReveal>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 mt-8 sm:mt-12 px-4">
         {sortedCategories.length > 0 ? (
           sortedCategories.map((category, index) => (
             <div
@@ -216,8 +216,8 @@ export default function CategorySection() {
           ))
         ) : (
           <div className="col-span-full text-center py-12">
-            <p className="text-xl text-slate-400">No categories found matching "{searchTerm}"</p>
-            <Button variant="link" className="text-sky-400 mt-2" onClick={() => setSearchTerm("")}>
+            <p className="text-xl text-slate-600">No categories found matching "{searchTerm}"</p>
+            <Button variant="link" className="text-sky-600 mt-2" onClick={() => setSearchTerm("")}>
               Clear search
             </Button>
           </div>

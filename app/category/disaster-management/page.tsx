@@ -9,34 +9,34 @@ import { Search, ArrowLeft, ExternalLink, Grid, List, X, MapPin, Shield } from "
 const disasterApps = [
   {
     id: 1,
-    title: "Landslides Profile Mapping Application",
+    title: "Landslides Profile Mapping App",
     category: "Monitoring and Alerts",
-    image: "/images/landslide.jpg",
+    image: "/images/landslide.png",
     description: "Real-time monitoring and alert system for landslides in Rwanda, providing early warnings and risk assessments",
     keywords: ["landslides", "monitoring", "alerts", "real-time", "risk assessment", "early warning"],
     Link: "https://gh.space.gov.rw/portal/home/item.html?id=89f13f64a695414bbe6be1f48570f4bb"
   },
   {
     id: 2,
-    title: "Storms Profile Mapping Application",
+    title: "Storms Profile Mapping App",
     category: "Emergency Response Coordination", 
-    image: "/images/storm.jpg",
+    image: "/images/storm1.jpg",
     description: "Comprehensive storm response coordination platform for emergency teams, resources, and communication",
     keywords: ["storms", "emergency", "response", "coordination", "platform", "communication"],
     Link: "https://gh.space.gov.rw/portal/apps/dashboards/e89c802794114d7d97e4731351de612c"
   },
   {
     id: 3,
-    title: "Floods Profile Mapping Application",
+    title: "Floods Profile Mapping App",
     category: "Flood Risk Analysis",
-    image: "/images/flood.jpg",
+    image: "/images/floods.png",
     description: "Satellite-based flood risk mapping and vulnerability assessment tool for disaster management",
     keywords: ["flood", "mapping", "risk", "satellite", "topography", "vulnerability"],
     Link: "https://gh.space.gov.rw/portal/apps/dashboards/902b4a62d0f4420ab66be44e5ad8d40c"
   },
   {
     id: 4,
-    title: "Earthquakes Profile Mapping Application",
+    title: "Earthquakes Profile Mapping App",
     category: "Crisis Management",
     image: "/images/earthquake.jpg",
     description: "Platform for earthquake evacuation route planning, shelter identification, and emergency response optimization",
@@ -45,16 +45,16 @@ const disasterApps = [
   },
   {
     id: 5,
-    title: "Emergency Response Operations Mapping Application",
+    title: "Emergency Response Operations Mapping App",
     category: "Emergency Operations",
     image: "/images/emergency.jpg",
     description: "Emergency response operations mapping tool for resource allocation, and recovery planning",
     keywords: ["emergency", "response", "operations", "mapping", "resource allocation", "recovery planning"],
-    Link: "https://esrirw.rw/portal/apps/dashboards/3c38a17377bb4009950a3817bf20988d"
+    Link: "https://gh.space.gov.rw/portal/apps/webappviewer/index.html?id=102317e8b82544c7867f11329d7e1b51"
   },
   {
     id: 6,
-    title: "Citizens Emergency Reporting Application",
+    title: "Citizens Emergency Reporting App",
     category: "Reporting and Alerts",
     image: "/images/reporting.jpg",
     description: "Community-based emergency reporting application for citizens to report incidents, hazards, and emergencies",
@@ -132,12 +132,6 @@ export default function DisasterManagement() {
             </div>
             
             <div className="text-center mb-12">
-              <div className="flex items-center justify-center mb-6">
-                <div className="p-4 bg-red-500/20 rounded-full border border-red-500/30">
-                  <Shield className="h-12 w-12 text-red-400" />
-                </div>
-              </div>
-              
               <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-red-400 tracking-tight drop-shadow-lg mb-4">
                 Disaster Management Applications
               </h1>
@@ -223,16 +217,16 @@ export default function DisasterManagement() {
             {filteredApps.length > 0 ? (
               <div className={
                 viewMode === 'grid' 
-                  ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+                  ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 auto-rows-fr"
                   : "space-y-4"
               }>
                 {filteredApps.map((app, index) => (
                   <div key={app.id} className={`transition-all duration-300 ${index * 50 < 1000 ? 'animate-fade-in' : ''}`} style={{animationDelay: `${index * 50}ms`}}>
                     {viewMode === 'grid' ? (
                       // Grid View
-                      <div className="group bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-xl overflow-hidden hover:bg-slate-800/70 transition-all duration-300 hover:scale-105 hover:shadow-2xl">
+                      <div className="group bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-xl overflow-hidden hover:bg-slate-800/70 transition-all duration-300 hover:scale-105 hover:shadow-2xl flex flex-col h-full">
                         {/* App Image */}
-                        <div className="relative h-48 overflow-hidden bg-gradient-to-br from-red-900/20 via-slate-900 to-orange-900/20">
+                        <div className="relative h-48 overflow-hidden bg-gradient-to-br from-red-900/20 via-slate-900 to-orange-900/20 flex-shrink-0">
                           <Image
                             src={app.image}
                             alt={app.title}
@@ -254,25 +248,24 @@ export default function DisasterManagement() {
                         </div>
 
                         {/* App Content */}
-                        <div className="p-6">
+                        <div className="p-6 flex flex-col flex-1">
                           <h3 className="text-xl font-bold text-white mb-2 group-hover:text-red-300 transition-colors">
                             {app.title}
                           </h3>
                           
-                          <p className="text-slate-300 text-sm mb-4 line-clamp-3">
+                          <p className="text-slate-300 text-sm mb-4 flex-1">
                             {app.description}
                           </p>
 
                           {/* Action Buttons */}
-                          <div className="flex gap-2">
+                          <div className="mt-auto pt-4">
                             <button 
                               onClick={() => handleLaunchApp(app.Link)}
-                              className="flex-1 flex items-center justify-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors text-sm font-medium"
+                              className="w-full flex items-center justify-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors text-sm font-medium"
                             >
                               <ExternalLink className="mr-2 h-4 w-4" />
-                              Launch
+                              Launch App
                             </button>
-                            
                           </div>
                         </div>
                       </div>
@@ -323,7 +316,7 @@ export default function DisasterManagement() {
                                   className="flex items-center px-4 py-2 bg-red-600 hover:bg-red-700 text-white rounded-lg transition-colors text-sm font-medium"
                                 >
                                   <ExternalLink className="mr-2 h-4 w-4" />
-                                  Launch
+                                  Launch App
                                 </button>
                                 <button className="px-4 py-2 border border-slate-600 text-slate-300 hover:bg-slate-700 rounded-lg transition-colors text-sm">
                                   Learn More
@@ -362,84 +355,87 @@ export default function DisasterManagement() {
         </section>
 
         {/* Footer */}
-        <footer className="relative bg-slate-950/95 text-slate-400 py-12">
-          <div className="container relative z-10 px-4 mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <footer className="relative bg-slate-950/95 text-slate-400 py-8 sm:py-12 overflow-hidden">
+          {/* Starfield background */}
+          <div className="starfield absolute inset-0 z-0 pointer-events-none" aria-hidden="true"></div>
+          
+          <div className="container relative z-10 px-4 sm:px-6 lg:px-8 mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
               <div>
-                <h3 className="text-white text-lg font-semibold mb-4">GeoHub</h3>
+                <h3 className="text-white text-lg font-semibold mb-4 flex items-center gap-2 glow-text">
+                  <span className="planet-icon animate-spin-slow" aria-label="Planet">🪐</span> GeoHub
+                </h3>
                 <p className="text-sm">
                   A project of the Rwanda Space Agency providing geospatial applications for national
                   development.
                 </p>
               </div>
               <div>
-                <h3 className="text-white text-lg font-semibold mb-4">Quick Links</h3>
+                <h3 className="text-white text-lg font-semibold mb-4 flex items-center gap-2 glow-text">
+                  <span className="rocket-icon animate-float" aria-label="Rocket">🚀</span> Quick Links
+                </h3>
                 <ul className="space-y-2 text-sm">
                   <li>
-                    <Link href="/#" className="hover:text-sky-400">
-                      Home
+                    <Link href="#" className="hover:text-sky-400 flex items-center gap-1">
+                      <span className="star-icon animate-twinkle" aria-label="Star">✨</span> Home
                     </Link>
                   </li>
                   <li>
-                    <Link href="/#about" className="hover:text-sky-400">
-                      About
+                    <Link href="#about" className="hover:text-sky-400 flex items-center gap-1">
+                      <span className="star-icon animate-twinkle" aria-label="Star">✨</span> About
                     </Link>
                   </li>
                   <li>
-                    <Link href="/#category" className="hover:text-sky-400">
-                      Applications
-                    </Link>
-                  </li>
-                  <li>
-                   
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-white text-lg font-semibold mb-4">Categories</h3>
-                <ul className="space-y-2 text-sm">
-                  <li>
-                    <Link href="/category/agriculture" className="hover:text-sky-400">
-                      Agriculture
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/category/infrastructure" className="hover:text-sky-400">
-                      Infrastructure
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/category/health" className="hover:text-sky-400">
-                      Health
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#" className="hover:text-red-400">
-                      View All
+                    <Link href="#category" className="hover:text-sky-400 flex items-center gap-1">
+                      <span className="star-icon animate-twinkle" aria-label="Star">✨</span> Applications
                     </Link>
                   </li>
                 </ul>
               </div>
               <div>
-                <h3 className="text-white text-lg font-semibold mb-4">Contact</h3>
+                <h3 className="text-white text-lg font-semibold mb-4 flex items-center gap-2 glow-text">
+                  <span className="satellite-icon animate-orbit" aria-label="Satellite">🛰️</span> Categories
+                </h3>
+                <ul className="space-y-2 text-sm">
+                  <li>
+                    <Link href="/category/agriculture" className="hover:text-sky-400 flex items-center gap-1">
+                      <span className="star-icon animate-twinkle" aria-label="Star">✨</span> Agriculture
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/category/infrastructure" className="hover:text-sky-400 flex items-center gap-1">
+                      <span className="star-icon animate-twinkle" aria-label="Star">✨</span> Infrastructure
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/category/health" className="hover:text-sky-400 flex items-center gap-1">
+                      <span className="star-icon animate-twinkle" aria-label="Star">✨</span> Health
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-white text-lg font-semibold mb-4 flex items-center gap-2 glow-text">
+                  <span className="astronaut-icon animate-float" aria-label="Astronaut">👨‍🚀</span> Contact
+                </h3>
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-center">
                     <MapPin className="h-4 w-4 mr-2" /> Kigali, Rwanda
                   </li>
                   <li>
-                    <a href="mailto:info@space.gov.rw" className="hover:text-red-400">
-                      info@space.gov.rw
-                    </a>
+                    <Link href="mailto:info@space.gov.rw" className="hover:text-sky-400 flex items-center gap-1">
+                      <span className="star-icon animate-twinkle" aria-label="Star">✨</span> info@space.gov.rw
+                    </Link>
                   </li>
                 </ul>
                 <div className="mt-4 flex space-x-4">
-                  <Link href="#" className="text-slate-400 hover:text-red-400">
+                  <Link href="#" className="text-slate-400 hover:text-sky-400 social-icon animate-float" aria-label="Twitter">
                     <span className="sr-only">Twitter</span>
                     <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
                     </svg>
                   </Link>
-                  <Link href="#" className="text-slate-400 hover:text-red-400">
+                  <Link href="#" className="text-slate-400 hover:text-sky-400 social-icon animate-float" aria-label="LinkedIn">
                     <span className="sr-only">LinkedIn</span>
                     <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />

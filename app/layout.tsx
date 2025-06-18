@@ -10,7 +10,7 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata: Metadata = {
   title: "GeoHub - Rwanda Space Agency",
   description: "Your central platform for geospatial applications and data across all sectors in Rwanda",
-    generator: 'v0.dev'
+    
 }
 
 export default function RootLayout({
@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <body className={`${inter.className} cursor-none`}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <SpaceCursor />

@@ -157,10 +157,10 @@
 @keyframes float {
   0%,
   100% {
-    transform: translateY(0);
+    transform: translateY(0) rotate(0deg);
   }
   50% {
-    transform: translateY(-5px);
+    transform: translateY(-10px) rotate(5deg);
   }
 }
 
@@ -186,6 +186,244 @@
   }
 }
 
+/* New Space Theme Animations */
+@keyframes shooting-star {
+  0% {
+    transform: translateX(0) translateY(0) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100vw) translateY(100vh) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes nebula-pulse {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0.3;
+  }
+}
+
+@keyframes star-twinkle {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Animation Classes */
+.animate-shooting-star {
+  animation: shooting-star 2s linear infinite;
+}
+
+.animate-gradient-shift {
+  animation: gradient-shift 15s ease infinite;
+  background-size: 200% 200%;
+}
+
+.animate-nebula-pulse {
+  animation: nebula-pulse 4s ease-in-out infinite;
+}
+
+.animate-star-twinkle {
+  animation: star-twinkle 3s ease-in-out infinite;
+}
+
+/* Space Theme Colors */
+:root {
+  --space-primary: 217 91% 60%;
+  --space-secondary: 240 100% 50%;
+  --space-accent: 280 100% 50%;
+  --space-background: 222 84% 5%;
+  --space-foreground: 210 40% 98%;
+  --space-muted: 217 33% 18%;
+  --space-muted-foreground: 215 20% 65%;
+  --space-border: 217 33% 18%;
+  --space-ring: 224 76% 48%;
+}
+
+/* Space Theme Typography */
+.space-text-glow {
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+}
+
+.space-text-neon {
+  text-shadow: 
+    0 0 5px rgba(56, 189, 248, 0.5),
+    0 0 10px rgba(56, 189, 248, 0.3),
+    0 0 15px rgba(56, 189, 248, 0.2);
+}
+
+.space-text-cosmic {
+  background: linear-gradient(to right, #60a5fa, #a78bfa, #60a5fa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: gradient-shift 8s ease infinite;
+  background-size: 200% auto;
+}
+
+/* Space Theme UI Elements */
+.space-card {
+  background: rgba(30, 41, 59, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  box-shadow: 
+    0 0 25px rgba(56, 189, 248, 0.15),
+    inset 0 0 25px rgba(56, 189, 248, 0.08);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.space-card:hover {
+  border-color: rgba(56, 189, 248, 0.4);
+  box-shadow: 
+    0 0 35px rgba(56, 189, 248, 0.25),
+    inset 0 0 35px rgba(56, 189, 248, 0.15);
+  transform: translateY(-2px);
+}
+
+.space-card::after {
+  content: '→';
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgb(56, 189, 248);
+  font-size: 2rem;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  opacity: 0;
+  text-shadow: 0 0 10px rgba(56, 189, 248, 0.5);
+  pointer-events: none;
+}
+
+.space-card:hover::after {
+  right: 20px;
+  opacity: 1;
+  text-shadow: 0 0 15px rgba(56, 189, 248, 0.8);
+}
+
+@keyframes clickIndicator {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.space-card:active::after {
+  animation: clickIndicator 0.3s ease;
+}
+
+.space-button {
+  background: linear-gradient(45deg, #3b82f6, #8b5cf6);
+  border: none;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.space-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.space-button:hover::before {
+  left: 100%;
+}
+
+.space-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+}
+
+/* Space Theme Loading States */
+.space-loader {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+
+.space-loader::before,
+.space-loader::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  animation: pulse 1.5s linear infinite;
+}
+
+.space-loader::before {
+  width: 100%;
+  height: 100%;
+  background: rgba(56, 189, 248, 0.2);
+  animation-delay: -0.5s;
+}
+
+.space-loader::after {
+  width: 75%;
+  height: 75%;
+  background: rgba(56, 189, 248, 0.4);
+  top: 12.5%;
+  left: 12.5%;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+}
+
 /* Category card animations */
 @keyframes pulseGlow {
   0%,
@@ -199,4 +437,115 @@
 
 .category-card-hover {
   animation: pulseGlow 2s infinite;
+}
+
+/* Space Footer Starfield and Icon Animations */
+.starfield {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+}
+.starfield::before, .starfield::after {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  left: -50%;
+  top: -50%;
+  pointer-events: none;
+  background: transparent;
+}
+.starfield::before {
+  background-image: 
+    radial-gradient(white 1px, transparent 1px),
+    radial-gradient(rgba(255,255,255,0.7) 1.5px, transparent 1.5px),
+    radial-gradient(rgba(173,216,230,0.5) 1px, transparent 1px);
+  background-size: 80px 80px, 120px 120px, 200px 200px;
+  background-position: 0 0, 40px 40px, 100px 100px;
+  animation: starfield-move 60s linear infinite;
+  opacity: 0.7;
+}
+.starfield::after {
+  background-image: 
+    radial-gradient(white 0.5px, transparent 0.5px),
+    radial-gradient(rgba(135,206,250,0.3) 1px, transparent 1px);
+  background-size: 160px 160px, 320px 320px;
+  background-position: 80px 80px, 160px 160px;
+  animation: starfield-move 120s linear infinite reverse;
+  opacity: 0.5;
+}
+@keyframes starfield-move {
+  0% { background-position: 0 0, 40px 40px, 100px 100px, 80px 80px, 160px 160px; }
+  100% { background-position: 100px 200px, 140px 240px, 200px 300px, 180px 280px, 260px 360px; }
+}
+
+/* Icon Animations */
+.animate-spin-slow {
+  animation: spin 8s linear infinite;
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(5deg); }
+}
+.animate-orbit {
+  animation: orbit 6s linear infinite;
+  display: inline-block;
+}
+@keyframes orbit {
+  0% { transform: rotate(0deg) translateX(0) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(5px) rotate(-360deg); }
+}
+.animate-twinkle {
+  animation: twinkle 1.5s infinite alternate;
+}
+@keyframes twinkle {
+  0% { opacity: 0.7; filter: blur(0px); }
+  100% { opacity: 1; filter: blur(1px); }
+}
+.glow-text {
+  text-shadow: 0 0 8px #38bdf8, 0 0 16px #0ea5e9;
+}
+.social-icon {
+  filter: drop-shadow(0 0 6px #38bdf8);
+  transition: filter 0.3s;
+}
+.social-icon:hover {
+  filter: drop-shadow(0 0 16px #38bdf8) brightness(1.2);
+}
+
+/* Planet background for footer */
+.planet-bg {
+  opacity: 0.55;
+  filter: blur(0.5px) drop-shadow(0 0 32px #38bdf8aa);
+  pointer-events: none;
+  user-select: none;
+}
+@media (max-width: 768px) {
+  .planet-bg {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+@keyframes astronautHover {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+.animate-astronaut-hover {
+  display: inline-block;
+  animation: astronautHover 3s ease-in-out infinite;
 }

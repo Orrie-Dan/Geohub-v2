@@ -14,12 +14,14 @@ import {
   Landmark,
   ArrowRight,
   type LucideIcon,
+  ShieldEllipsisIcon,
+  Shield,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 interface CategoryCardProps {
   title: string
-  icon: string
+  icon: string | LucideIcon // <-- allow both string and component
   description: string
   color: string
   applications?: number
@@ -56,8 +58,8 @@ export default function CategoryCard({
         return Building2
       case "globe":
         return Globe
-      case "alert-triangle":
-        return AlertTriangle
+      case "Shield":
+        return Shield
       case "activity":
         return Activity
       case "book-open":
@@ -142,7 +144,13 @@ export default function CategoryCard({
   }
 
   const { bg, text, hover, border, gradient } = getColorClasses()
-  const Icon = getIcon()
+
+  let Icon: LucideIcon
+  if (typeof icon === "string") {
+    Icon = getIcon()
+  } else {
+    Icon = icon
+  }
 
   // Use provided path or generate slug-based URL
   const href = path ? `/${path.replace('app/', '').replace('/page.tsx', '')}` : `/category/${createSlug(title)}`
@@ -151,7 +159,7 @@ export default function CategoryCard({
     <Link href={href}>
       <div
         className={cn(
-          "group relative h-full rounded-xl border backdrop-blur-sm transition-all duration-500",
+          "group relative h-[300px] rounded-xl border backdrop-blur-sm transition-all duration-500",
           "bg-slate-900/40 border-slate-700/50",
           isHovered ? "translate-y-[-5px] shadow-lg shadow-slate-900/50" : "shadow-md",
           "overflow-hidden",
@@ -162,7 +170,7 @@ export default function CategoryCard({
         {/* Background Image */}
         <div
           className="absolute inset-0 z-0 transition-opacity duration-500"
-          style={{ opacity: isHovered ? 0.8 : 0.15 }}
+          style={{ opacity: isHovered ? 0.9 : 0.3 }}
         >
           <Image
             src={image || "/placeholder.svg?height=400&width=600"}
@@ -174,49 +182,25 @@ export default function CategoryCard({
             className={cn(
               "absolute inset-0 bg-gradient-to-br transition-opacity duration-500",
               gradient,
-              isHovered ? "opacity-60" : "opacity-0",
+              isHovered ? "opacity-40" : "opacity-0",
             )}
           ></div>
         </div>
 
         {/* Content */}
-        <div className="relative z-10 p-6">
-          <div
-            className={cn(
-              "p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4 transition-transform duration-500",
-              bg,
-              isHovered ? "scale-110" : "scale-100",
-            )}
-          >
-            <Icon className={cn("h-7 w-7", text)} />
-          </div>
-
+        <div className="relative z-10 p-8 flex items-center justify-center h-full">
           <h3
             className={cn(
-              "text-xl font-semibold mb-2 transition-all duration-500",
+              "text-2xl font-bold transition-all duration-500 text-center",
               isHovered ? "text-white" : "text-white",
             )}
           >
             {title}
           </h3>
-
-          <p className={cn("mb-4 transition-all duration-500", isHovered ? "text-white" : "text-slate-300")}>
-            {description}
-          </p>
-
-          <div className="flex justify-between items-center">
-            <span className={cn("text-sm transition-all duration-500", isHovered ? "text-white" : "text-slate-400")}>
-              {applications} applications
-            </span>
-            <div
-              className={cn(
-                "flex items-center justify-center w-8 h-8 rounded-full transition-all duration-500",
-                isHovered ? `bg-white ${text}` : "text-white",
-              )}
-            >
-              <ArrowRight className={cn("h-5 w-5 transition-all duration-500", isHovered ? "translate-x-0.5" : "")} />
-            </div>
-          </div>
+        </div>
+        {/* Arrow Indicator */}
+        <div className="absolute bottom-4 right-4 z-20 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
+          <ArrowRight className={cn("w-7 h-7", text, "bg-slate-900/70 rounded-full p-1 shadow-lg", isHovered ? "scale-110" : "scale-100")} />
         </div>
       </div>
     </Link>
