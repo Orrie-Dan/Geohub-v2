@@ -12,14 +12,14 @@ const FlippableCategoryCard: React.FC<FlippableCategoryCardProps> = ({
   onClick,
 }) => (
   <div
-    className="flip-card min-w-[280px] max-w-xs flex-shrink-0 cursor-pointer h-[254px]"
+    className="flip-card min-w-[280px] max-w-xs flex-shrink-0 cursor-pointer h-64"
     onClick={onClick}
   >
     <div className="flip-card-inner w-full h-full">
       <div className="flip-card-front w-full h-full">
         <CategoryCard {...frontProps} />
       </div>
-      <div className="flip-card-back w-full h-full relative flex items-center justify-center">
+      <div className="flip-card-back w-full h-full relative flex items-center justify-center overflow-hidden">
         {/* Background Image */}
         {frontProps.image && (
           <Image
@@ -29,10 +29,11 @@ const FlippableCategoryCard: React.FC<FlippableCategoryCardProps> = ({
             className="object-cover z-0"
           />
         )}
-        <div className="absolute inset-0 bg-black/70 z-10" />
-        <div className="relative z-20 flex flex-col items-center justify-center gap-2 p-4 text-center w-full">
-          <h3 className="text-lg font-bold text-white drop-shadow-lg">{frontProps.title}</h3>
-          <p className="text-sm text-white/80 drop-shadow-lg">{frontProps.description}</p>
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="w-full h-full absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent z-10" />
+          <h3 className="relative z-20 text-xl font-bold text-white text-center px-4 py-2 drop-shadow-lg">
+            {frontProps.title}
+          </h3>
         </div>
       </div>
     </div>

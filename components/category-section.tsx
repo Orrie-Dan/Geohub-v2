@@ -1,9 +1,10 @@
 "use client"
 
-import { useRef } from "react"
+import { useRef, useState } from "react"
 import { useRouter } from "next/navigation"
 import FlippableCategoryCard from "@/components/flippable-category-card"
 import CategoryCarousel from "@/components/category-carousel"
+import CategoryCard from "@/components/category-card"
 
 const categories = [
   {
@@ -84,7 +85,7 @@ const categories = [
     description: "Administrative boundaries and public service mapping",
     color: "purple",
     applications: 1,
-    image: "/images/gov.jpg",
+    image: "/images/loc-gov.jpg",
     path: "/category/local-government",
   },
   {
@@ -119,13 +120,61 @@ const categories = [
 
 export default function CategorySection() {
   const router = useRouter()
+  const [filter, setFilter] = useState<'az' | 'popular'>('az')
+  const [search, setSearch] = useState('')
+
+  // Filter and sort categories
+  const filteredCategories = categories.filter(category =>
+    category.title.toLowerCase().includes(search.toLowerCase())
+  )
+  const sortedCategories = [...filteredCategories].sort((a, b) => {
+    if (filter === 'az') {
+      return a.title.localeCompare(b.title)
+    } else {
+      return (b.applications || 0) - (a.applications || 0)
+    }
+  })
+
   return (
     <div className="w-full min-h-screen flex flex-col justify-center items-center bg-slate-900/85 backdrop-blur-sm">
-      <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 drop-shadow-lg">Explore Categories</h2>
       <CategoryCarousel
         categories={categories}
         onCardClick={(path) => router.push(path)}
       />
+      {/* Category Cards Grid Below Carousel */}
+      <div className="w-full mt-16 mb-8">
+        <div className="flex justify-center w-full mb-4">
+          <h3 className="text-4xl md:text-5xl font-bold text-white drop-shadow-lg text-center">Browse All Categories</h3>
+        </div>
+        <div className="flex flex-col sm:flex-row items-center justify-center w-full max-w-2xl mx-auto mb-8 gap-2">
+          <input
+            type="text"
+            value={search}
+            onChange={e => setSearch(e.target.value)}
+            placeholder="Search category..."
+            className="px-4 py-2 rounded-lg bg-slate-800 text-white placeholder-slate-400 border border-slate-700 focus:outline-none focus:ring-2 focus:ring-sky-500 w-full max-w-xs"
+          />
+          <div className="flex gap-2">
+            <button
+              className={`px-4 py-2 rounded-lg font-semibold transition-colors ${filter === 'az' ? 'bg-sky-600 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}`}
+              onClick={() => setFilter('az')}
+            >
+              A-Z
+            </button>
+            <button
+              className={`px-4 py-2 rounded-lg font-semibold transition-colors ${filter === 'popular' ? 'bg-sky-600 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}`}
+              onClick={() => setFilter('popular')}
+            >
+              Popular
+            </button>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full">
+          {sortedCategories.map((category, idx) => (
+            <CategoryCard key={idx} {...category} />
+          ))}
+        </div>
+      </div>
     </div>
   )
 }

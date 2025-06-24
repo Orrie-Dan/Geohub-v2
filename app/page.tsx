@@ -38,9 +38,9 @@ export default function Home() {
             <ScrollReveal>
               <div className="space-y-4 sm:space-y-6 max-w-4xl mx-auto">
                 <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-sky-400 tracking-tight drop-shadow-lg">
-                  WELCOME TO{" "}
+                  Explore {" "}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-sky-400 to-cyan-300">
-                    GEOHUB
+                    GeoSpatial Applications
                   </span>
                 </h1>
 
@@ -59,40 +59,44 @@ export default function Home() {
           </div>
         </section>
         {/* About Section */}
-        <section id="about"  className="relative pt-24 pb-20">
-          <div className="absolute inset-0 bg-slate-900/95 backdrop-blur-sm"></div>
-          <div className="container relative z-10 px-4 mx-auto">
-            <ScrollReveal>
-              <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-white drop-shadow-lg">About the GeoHub</h2>
-                <p className="mt-4 text-lg text-slate-300 max-w-3xl mx-auto drop-shadow-md">
-                  GeoHub is Rwanda's premier platform for geospatial applications. Discover, analyze,
-                  and utilize spatial application to drive innovation and development across all sectors.
-                </p>
-              </div>
-            </ScrollReveal>
+        <section id="about" className="relative bg-[#0B1622] text-white py-20">
+          <div className="max-w-3xl mx-auto text-center px-6">
+            <h2 className="text-4xl font-bold mb-4">About the GeoHub</h2>
+            <p className="text-lg text-gray-300">
+              GeoHub is Rwanda's premier platform for geospatial applications.
+              Discover, analyze, and utilize spatial application to drive innovation
+              and development across all sectors.
+            </p>
           </div>
-          {/* Gradient fade at the bottom of About section (same as Hero) */}
-          <div className="absolute left-0 right-0 bottom-0 h-32 bg-gradient-to-t from-slate-900/90 to-transparent z-20" />
+          {/* SVG divider for smooth transition */}
+          <div className="absolute bottom-0 left-0 right-0 overflow-hidden leading-[0]">
+            <svg
+              className="relative block w-full h-[100px]"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 1440 320"
+              preserveAspectRatio="none"
+            >
+              <path
+                fill="#0B1622"
+                d="M0,64L60,80C120,96,240,128,360,154.7C480,181,600,203,720,213.3C840,224,960,224,1080,202.7C1200,181,1320,139,1380,117.3L1440,96V320H1380C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320H0Z"
+              ></path>
+            </svg>
+          </div>
         </section>
 
         {/* Enhanced Category Section */}
-        <section className="relative pt-20 pb-24">
-          {/* Extended Gradient fade at the top of Explore Categories section */}
-          <div className="pointer-events-none absolute left-0 right-0 top-0 h-24 sm:h-32 bg-gradient-to-t from-transparent to-slate-950/90 z-20" />
-          <div className="absolute inset-0 bg-slate-950/50 backdrop-blur-sm"></div>
+        <section className="relative w-full min-h-screen flex flex-col justify-center items-center bg-slate-900/85 backdrop-blur-sm py-12">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 drop-shadow-lg text-center">Explore Categories</h2>
           <CategorySection />
         </section>
 
         {/* Featured Applications */}
-        <section id="category" className="relative py-16 sm:py-20 lg:py-24">
+        <section id="category" className="relative pt-4 pb-16 sm:pt-6 sm:pb-20 lg:pt-8 lg:pb-24">
           <div className="absolute inset-0 bg-slate-900/85 backdrop-blur-sm"></div>
           <div className="container relative z-10 px-4 sm:px-6 lg:px-8 mx-auto">
-            <ScrollReveal>
-              <div className="mb-8 sm:mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-white">Featured Applications</h2>
-              </div>
-            </ScrollReveal>
+            <div className="mb-8 sm:mb-12 text-center">
+              <h2 className="text-3xl md:text-4xl font-bold text-white">Featured Applications</h2>
+            </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 items-stretch">
               <ScrollReveal delay={100}>
