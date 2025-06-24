@@ -3,6 +3,7 @@
 import { useState, useMemo, useCallback } from "react"
 import { Search, ArrowLeft, ExternalLink, Grid, List, X, MapPin, Heart, Activity, Users, Stethoscope } from "lucide-react"
 import Link from "next/link" 
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card"
 
 // Health application data
 const healthApps = [
@@ -10,7 +11,7 @@ const healthApps = [
     id: 1,
     title: "Disease Outbreaks Reporting and Mapping App",
     category: "Public Health",
-    image: "/images/disease.jpg",
+    image: "/images/disease2.jpg",
     description: "A comprehensive platform for reporting and mapping health facilities, hospitals, and clinics across Rwanda",
     keywords: ["disease", "outbreaks", "reporting", "mapping", "public health", "epidemiology"],
     link: "https://gh.space.gov.rw/portal/apps/dashboards/becaf96569284409af237aedb4fa5785",
@@ -19,7 +20,7 @@ const healthApps = [
     id: 2,
     title: "Health Emergency Management and Mapping App", 
     category: "Public Health",
-    image: "/images/health.jpg",
+    image: "/images/health4.jpg",
     description: "A tool for managing health emergencies and mapping disease outbreaks in real-time",
     keywords: ["health", "emergency", "management", "mapping", "disease outbreaks", "real-time"],
     link: "https://gh.space.gov.rw/portal/apps/experiencebuilder/experience/?id=26f19f93207640eeada7363b577481de",
@@ -59,359 +60,86 @@ export default function HealthApps() {
   }, [])
 
   return (
-    <main className="flex min-h-screen flex-col relative">
-      {/* Fixed Background */}
-      <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-950 via-teal-950 to-cyan-950"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-400/20 via-transparent to-transparent"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-teal-400/20 via-transparent to-transparent"></div>
-      </div>
-
-      {/* Content */}
-      <div className="relative z-10">
-        {/* Header Section */}
-        <section className="relative py-16">
-          <div className="absolute inset-0 bg-slate-950/80 backdrop-blur-sm"></div>
-          <div className="container relative z-10 px-4 mx-auto">
-            <div className="flex items-center mb-8">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      {/* Header */}
+      <div className="relative h-64 overflow-hidden">
+        <img
+          src="/images/health4.jpg"
+          alt="Health"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent"></div>
+        <div className="absolute inset-0 flex items-center">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center gap-4 mb-4">
               <Link href="/">
-              <button className="text-cyan-400 hover:text-cyan-300 mr-4 flex items-center">
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Home
-              </button>
+                <button className="text-white hover:bg-white/10 flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-800/50 border border-slate-700/50">
+                  <ArrowLeft className="h-4 w-4 mr-2" />
+                  Back to Home
+                </button>
               </Link>
             </div>
-            
-            <div className="text-center mb-12">
-              <div className="flex justify-center mb-4">
-                <Heart className="h-16 w-16 text-cyan-400" />
-              </div>
-              <h1 className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-cyan-400 tracking-tight drop-shadow-lg mb-4">
-                Health Applications
-              </h1>
-              <p className="text-xl text-slate-200 max-w-3xl mx-auto drop-shadow-sm">
-                Comprehensive health information systems to improve healthcare delivery, 
-                monitor public health, and support Rwanda's universal health coverage goals
-              </p>
-            </div>
-
-            {/* Search Bar */}
-            <div className="max-w-4xl mx-auto mb-8">
-              <div className="flex flex-col md:flex-row gap-4">
-                <div className="relative flex-1">
-                  <input
-                    type="text"
-                    placeholder="Search health applications by name..."
-                    value={searchQuery}
-                    onChange={handleSearchChange}
-                    className="w-full pl-12 pr-10 py-4 text-lg bg-white/15 backdrop-blur-md border border-slate-600 rounded-lg text-white placeholder:text-slate-300 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/50 focus:outline-none"
-                  />
-                  <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-300 h-5 w-5" />
-                  {searchQuery && (
-                    <button
-                      onClick={clearSearch}
-                      className="absolute right-2 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-slate-200 p-1"
-                    >
-                      <X className="h-4 w-4" />
-                    </button>
-                  )}
-                </div>
-                
-                <div className="flex gap-2">
-                  <button 
-                    onClick={() => setViewMode('grid')}
-                    className={`px-4 py-2 rounded-lg flex items-center ${
-                      viewMode === 'grid' 
-                        ? "bg-cyan-600 hover:bg-cyan-700 text-white" 
-                        : "border border-slate-600 text-slate-300 hover:bg-slate-800"
-                    }`}
-                  >
-                    <Grid className="h-4 w-4 mr-2" />
-                    Grid
-                  </button>
-                  
-                  <button 
-                    onClick={() => setViewMode('list')}
-                    className={`px-4 py-2 rounded-lg flex items-center ${
-                      viewMode === 'list' 
-                        ? "bg-cyan-600 hover:bg-cyan-700 text-white" 
-                        : "border border-slate-600 text-slate-400 hover:bg-slate-800"
-                    }`}
-                  >
-                    <List className="h-4 w-4 mr-2" />
-                    List
-                  </button>
-                </div>
-              </div>
-            </div>
-
-            {/* Search Results Info */}
-            <div className="text-center text-slate-300 mb-8">
-              <p>
-                {searchQuery ? (
-                  <>
-                    Found <span className="text-cyan-400 font-semibold">{filteredApps.length}</span> applications
-                    <span className="text-slate-400"> matching "{searchQuery}"</span>
-                  </>
-                ) : (
-                  <>
-                    Showing <span className="text-cyan-400 font-semibold">{filteredApps.length}</span> health applications
-                  </>
-                )}
-              </p>
-            </div>
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">Health</h1>
+            <p className="text-xl text-slate-200 max-w-3xl">
+              Comprehensive health information systems to improve healthcare delivery, monitor public health, and support Rwanda's universal health coverage goals.
+            </p>
           </div>
-        </section>
-
-        {/* Applications Grid/List */}
-        <section className="relative py-12">
-          <div className="absolute inset-0 bg-slate-900/70 backdrop-blur-sm"></div>
-          <div className="container relative z-10 px-4 mx-auto">
-            {filteredApps.length > 0 ? (
-              <div className={
-                viewMode === 'grid' 
-                  ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-                  : "space-y-4"
-              }>
-                {filteredApps.map((app) => (
-                  <div key={app.id}>
-                    {viewMode === 'grid' ? (
-                      // Grid View - Added h-full and flex flex-col for equal height
-                      <div className="group bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-xl overflow-hidden hover:bg-slate-800/70 transition-all duration-300 hover:scale-105 hover:shadow-2xl h-full flex flex-col">
-                        {/* App Image */}
-                        <div className="relative h-48 overflow-hidden flex-shrink-0">
-                          {imageErrors.has(app.id) ? (
-                            // Fallback when image fails to load
-                            <div className="w-full h-full bg-gradient-to-br from-cyan-600/20 to-blue-600/20 flex items-center justify-center">
-                              <Activity className="h-16 w-16 text-cyan-400/60" />
-                            </div>
-                          ) : (
-                            <img
-                              src={app.image}
-                              alt={app.title}
-                              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                              onError={() => handleImageError(app.id)}
-                            />
-                          )}
-                          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
-                          
-                          {/* Category Badge */}
-                          <div className="absolute top-3 right-3">
-                            <span className="px-2 py-1 text-xs font-medium bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 rounded-full backdrop-blur-sm">
-                              {app.category}
-                            </span>
-                          </div>
-                        </div>
-
-                        {/* App Content - Added flex-1 to take remaining space */}
-                        <div className="p-6 flex flex-col flex-1">
-                          <h3 className="text-xl font-bold text-white mb-2 group-hover:text-cyan-300 transition-colors">
-                            {app.title}
-                          </h3>
-                          
-                          <p className="text-slate-300 text-sm mb-4 line-clamp-3 flex-1">
-                            {app.description}
-                          </p>
-                          
-                          {/* Action Buttons - Added mt-auto to push to bottom */}
-                          <div className="flex gap-2 mt-auto">
-                            <a 
-                              href={app.link}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="flex-1 bg-cyan-600 hover:bg-cyan-700 text-white px-3 py-2 rounded-lg text-sm font-medium flex items-center justify-center transition-colors"
-                            >
-                              <ExternalLink className="mr-2 h-4 w-4" />
-                              Launch App
-                            </a>
-                            
-                          </div>
-                        </div>
-                      </div>
-                    ) : (
-                      // List View
-                      <div className="group bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6 hover:bg-slate-800/70 transition-all duration-300">
-                        <div className="flex flex-col md:flex-row gap-6">
-                          <div className="relative w-full md:w-48 h-32 flex-shrink-0 rounded-lg overflow-hidden">
-                            {imageErrors.has(app.id) ? (
-                              // Fallback when image fails to load
-                              <div className="w-full h-full bg-gradient-to-br from-cyan-600/20 to-blue-600/20 flex items-center justify-center">
-                                <Stethoscope className="h-12 w-12 text-cyan-400/60" />
-                              </div>
-                            ) : (
-                              <img
-                                src={app.image}
-                                alt={app.title}
-                                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                                onError={() => handleImageError(app.id)}
-                              />
-                            )}
-                          </div>
-                          
-                          <div className="flex-1">
-                            <div className="flex items-start justify-between mb-2">
-                              <h3 className="text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">
-                                {app.title}
-                              </h3>
-                              <span className="px-2 py-1 text-xs font-medium bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 rounded-full backdrop-blur-sm ml-4">
-                                {app.category}
-                              </span>
-                            </div>
-                            
-                            <p className="text-slate-300 text-sm mb-4">
-                              {app.description}
-                            </p>
-
-                            <div className="flex items-center justify-between">
-                              <div className="flex items-center gap-4 text-sm text-slate-400">
-                                <div className="flex items-center">
-                                  <span className="text-yellow-400 mr-1">★</span>
-                                  <span>Health Platform</span>
-                                </div>
-                              </div>
-                              
-                              <div className="flex gap-2">
-                                <a 
-                                  href={app.link}
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="bg-cyan-600 hover:bg-cyan-700 text-white px-3 py-2 rounded-lg text-sm font-medium flex items-center transition-colors"
-                                >
-                                  <ExternalLink className="mr-2 h-4 w-4" />
-                                  Launch App
-                                </a>
-                                <button className="border border-slate-600 text-slate-300 hover:bg-slate-700 px-3 py-2 rounded-lg text-sm transition-colors">
-                                  Learn More
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            ) : (
-              // No Results State
-              <div className="text-center py-16">
-                <div className="bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-xl p-12 max-w-md mx-auto">
-                  <div className="text-6xl mb-4">🔍</div>
-                  <h3 className="text-xl font-bold text-white mb-2">No applications found</h3>
-                  <p className="text-slate-400 mb-6">
-                    We couldn't find any applications matching "{searchQuery}".
-                  </p>
-                  <div className="space-y-2">
-                    <p className="text-sm text-slate-500">Try different keywords or:</p>
-                    <button 
-                      onClick={clearSearch}
-                      className="bg-cyan-600 hover:bg-cyan-700 text-white px-4 py-2 rounded-lg text-sm"
-                    >
-                      Show all applications
-                    </button>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-        </section>
-
-        {/* Footer */}
-        <footer className="relative bg-slate-950/95 text-slate-400 py-12 overflow-hidden">
-          {/* Starfield background */}
-          <div className="starfield absolute inset-0 z-0 pointer-events-none" aria-hidden="true"></div>
-          
-          <div className="container relative z-10 px-4 mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-              <div>
-                <h3 className="text-white text-lg font-semibold mb-4 flex items-center gap-2 glow-text">
-                  <span className="planet-icon animate-spin-slow" aria-label="Planet">🪐</span> GeoHub
-                </h3>
-                <p className="text-sm">
-                  A project of the Rwanda Space Agency providing geospatial applications for national
-                  development.
-                </p>
-              </div>
-              <div>
-                <h3 className="text-white text-lg font-semibold mb-4 flex items-center gap-2 glow-text">
-                  <span className="rocket-icon animate-float" aria-label="Rocket">🚀</span> Quick Links
-                </h3>
-                <ul className="space-y-2 text-sm">
-                  <li>
-                    <Link href="/" className="hover:text-sky-400 flex items-center gap-1">
-                      <span className="star-icon animate-twinkle" aria-label="Star">✨</span> Home
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/#about" className="hover:text-sky-400 flex items-center gap-1">
-                      <span className="star-icon animate-twinkle" aria-label="Star">✨</span> About
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/#category" className="hover:text-sky-400 flex items-center gap-1">
-                      <span className="star-icon animate-twinkle" aria-label="Star">✨</span> Applications
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-white text-lg font-semibold mb-4 flex items-center gap-2 glow-text">
-                  <span className="satellite-icon animate-orbit" aria-label="Satellite">🛰️</span> Categories
-                </h3>
-                <ul className="space-y-2 text-sm">
-                  <li>
-                    <Link href="/category/agriculture" className="hover:text-sky-400 flex items-center gap-1">
-                      <span className="star-icon animate-twinkle" aria-label="Star">✨</span> Agriculture
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/category/infrastructure" className="hover:text-sky-400 flex items-center gap-1">
-                      <span className="star-icon animate-twinkle" aria-label="Star">✨</span> Infrastructure
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/category/health" className="hover:text-sky-400 flex items-center gap-1">
-                      <span className="star-icon animate-twinkle" aria-label="Star">✨</span> Health
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-white text-lg font-semibold mb-4 flex items-center gap-2 glow-text">
-                  <span className="astronaut-icon animate-float" aria-label="Astronaut" style={{ transform: 'scaleX(-1)' }}>👨‍🚀</span> Contact
-                </h3>
-                <ul className="space-y-2 text-sm">
-                  <li className="flex items-center">
-                    <MapPin className="h-4 w-4 mr-2" /> Kigali, Rwanda
-                  </li>
-                  <li>
-                    <Link href="mailto:info@space.gov.rw" className="hover:text-sky-400 flex items-center gap-1">
-                      <span className="star-icon animate-twinkle" aria-label="Star">✨</span> info@space.gov.rw
-                    </Link>
-                  </li>
-                </ul>
-                <div className="mt-4 flex space-x-4">
-                  <Link href="#" className="text-slate-400 hover:text-sky-400 social-icon animate-float" aria-label="Twitter" style={{ transform: 'scaleX(-1)' }}>
-                    <span className="sr-only">Twitter</span>
-                    <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
-                    </svg>
-                  </Link>
-                  <Link href="#" className="text-slate-400 hover:text-sky-400 social-icon animate-float" aria-label="LinkedIn" style={{ transform: 'scaleX(-1)' }}>
-                    <span className="sr-only">LinkedIn</span>
-                    <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                      <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
-                    </svg>
-                  </Link>
-                </div>
-              </div>
-            </div>
-            <div className="border-t border-slate-800 mt-8 pt-8 text-center text-sm">
-              <p>© {new Date().getFullYear()} Rwanda Space Agency. All rights reserved.</p>
-            </div>
-          </div>
-        </footer>
+        </div>
       </div>
-    </main>
+      {/* Content */}
+      <div className="container mx-auto px-4 py-12">
+        {/* Category Description */}
+        <div className="mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <h2 className="text-3xl font-bold text-white mb-6">Health Applications</h2>
+              <p className="text-lg text-slate-300 mb-6">
+                Our health applications support disease monitoring, emergency management, and public health initiatives. Leverage real-time data and GIS for better healthcare outcomes.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <div className="flex items-center gap-2 text-slate-300"><Stethoscope className="h-5 w-5" /><span>Disease Monitoring</span></div>
+                <div className="flex items-center gap-2 text-slate-300"><Stethoscope className="h-5 w-5" /><span>Emergency Management</span></div>
+                <div className="flex items-center gap-2 text-slate-300"><Stethoscope className="h-5 w-5" /><span>Public Health</span></div>
+                <div className="flex items-center gap-2 text-slate-300"><Stethoscope className="h-5 w-5" /><span>Healthcare Access</span></div>
+              </div>
+            </div>
+            <div className="relative">
+              <img src="/images/disease.jpg" alt="Health" width={600} height={400} className="rounded-lg shadow-2xl" />
+            </div>
+          </div>
+        </div>
+        {/* Applications Grid */}
+        <div className="mb-12">
+          <h3 className="text-2xl font-bold text-white mb-8">Available Applications</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredApps.map((app, index) => (
+              <Card key={index} className="bg-slate-800/50 border-slate-700 hover:bg-slate-800/70 transition-colors">
+                <div className="relative h-48 overflow-hidden rounded-t-lg">
+                  <img src={app.image} alt={app.title} className="w-full h-full object-cover" />
+                  <div className="absolute top-4 right-4">
+                    <span className="px-2 py-1 text-xs font-medium bg-cyan-500/20 text-cyan-400 border border-cyan-500/30 rounded-full">{app.category}</span>
+                  </div>
+                </div>
+                <CardHeader>
+                  <CardTitle className="text-white">{app.title}</CardTitle>
+                  <CardDescription className="text-slate-300">{app.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <a
+                    href={app.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full bg-cyan-600 hover:bg-cyan-700 text-white px-4 py-2 rounded-lg flex items-center justify-center"
+                  >
+                    <ExternalLink className="h-4 w-4 mr-2" />
+                    Open Application
+                  </a>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
   )
 }

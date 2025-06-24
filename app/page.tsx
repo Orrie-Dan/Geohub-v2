@@ -59,24 +59,27 @@ export default function Home() {
           </div>
         </section>
         {/* About Section */}
-        <section id="about"  className="relative py-24">
-          <div className="absolute inset-0 bg-slate-900/85 backdrop-blur-sm"></div>
+        <section id="about"  className="relative pt-24 pb-20">
+          <div className="absolute inset-0 bg-slate-900/95 backdrop-blur-sm"></div>
           <div className="container relative z-10 px-4 mx-auto">
             <ScrollReveal>
               <div className="text-center mb-12">
-                <h2 className="text-3xl md:text-4xl font-bold text-white">About the GeoHub</h2>
-                <p className="mt-4 text-lg text-slate-300 max-w-3xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold text-white drop-shadow-lg">About the GeoHub</h2>
+                <p className="mt-4 text-lg text-slate-300 max-w-3xl mx-auto drop-shadow-md">
                   GeoHub is Rwanda's premier platform for geospatial applications. Discover, analyze,
                   and utilize spatial application to drive innovation and development across all sectors.
                 </p>
               </div>
             </ScrollReveal>
           </div>
-          
+          {/* Gradient fade at the bottom of About section (same as Hero) */}
+          <div className="absolute left-0 right-0 bottom-0 h-32 bg-gradient-to-t from-slate-900/90 to-transparent z-20" />
         </section>
 
         {/* Enhanced Category Section */}
-        <section className="relative py-24">
+        <section className="relative pt-20 pb-24">
+          {/* Extended Gradient fade at the top of Explore Categories section */}
+          <div className="pointer-events-none absolute left-0 right-0 top-0 h-24 sm:h-32 bg-gradient-to-t from-transparent to-slate-950/90 z-20" />
           <div className="absolute inset-0 bg-slate-950/50 backdrop-blur-sm"></div>
           <CategorySection />
         </section>
@@ -87,7 +90,7 @@ export default function Home() {
           <div className="container relative z-10 px-4 sm:px-6 lg:px-8 mx-auto">
             <ScrollReveal>
               <div className="mb-8 sm:mb-12">
-                <h2 className="text-2xl sm:text-3xl font-bold text-white">Featured Applications</h2>
+                <h2 className="text-3xl md:text-4xl font-bold text-white">Featured Applications</h2>
               </div>
             </ScrollReveal>
 
@@ -96,7 +99,7 @@ export default function Home() {
                 <FeaturedApp
                   title="Agriculture Land Profiling and Crops Suitability"
                   category="Agriculture"
-                  image="/images/agriculture.jpg"
+                  image="/images/agr1.jpg"
                   description="Map and analyze agricultural land use patterns across Rwanda"
                   url="https://gh.space.gov.rw/portal/apps/dashboards/cbf25115208844b3ba46732a110e8ac1"
                 />
@@ -105,7 +108,7 @@ export default function Home() {
                 <FeaturedApp
                   title="Floods Profile Mapping Application"
                   category="Disaster Management"
-                  image="/images/floods.png"
+                  image="/images/dis.jpeg"
                   description="Identify areas at risk of flooding based on topography and rainfall data"
                   url="https://gh.space.gov.rw/portal/apps/dashboards/72dd1ef9653c436392633b8e32c364d8"
                 />
@@ -201,13 +204,13 @@ export default function Home() {
                   </li>
                 </ul>
                 <div className="mt-4 flex space-x-4">
-                  <Link href="#" className="text-slate-400 hover:text-sky-400 social-icon animate-float" aria-label="Twitter">
+                  <Link href="#" className="text-slate-400 hover:text-sky-400 social-icon" aria-label="Twitter">
                     <span className="sr-only">Twitter</span>
                     <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
                     </svg>
                   </Link>
-                  <Link href="#" className="text-slate-400 hover:text-sky-400 social-icon animate-float" aria-label="LinkedIn">
+                  <Link href="#" className="text-slate-400 hover:text-sky-400 social-icon" aria-label="LinkedIn">
                     <span className="sr-only">LinkedIn</span>
                     <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                       <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />

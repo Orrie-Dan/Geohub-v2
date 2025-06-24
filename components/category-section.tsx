@@ -1,14 +1,9 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { Search, Shield, TrendingUp, User2  } from "lucide-react"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import CategoryCard from "@/components/category-card"
-import { ScrollReveal } from "@/components/scroll-reveal"
-
-
-// Category data
+import { useRef } from "react"
+import { useRouter } from "next/navigation"
+import FlippableCategoryCard from "@/components/flippable-category-card"
+import CategoryCarousel from "@/components/category-carousel"
 
 const categories = [
   {
@@ -17,8 +12,8 @@ const categories = [
     description: "Crop monitoring, soil analysis, and agricultural planning tools",
     color: "green",
     applications: 4,
-    image: "/images/agriculture.jpg",
-    
+    image: "/images/agr1.jpg",
+    path: "/category/agriculture",
   },
   {
     title: "Infrastructure",
@@ -26,7 +21,8 @@ const categories = [
     description: "Urban planning, construction, and infrastructure management",
     color: "blue",
     applications:4,
-    image: "/images/kigali.jpg",
+    image: "/images/proj-2.jpeg",
+    path: "/category/infrastructure",
   },
   {
     title: "Environment",
@@ -34,16 +30,17 @@ const categories = [
     description: "Climate data, conservation, and environmental monitoring",
     color: "teal",
     applications: 4,
-    image: "/images/environment-alt.jpeg",
+    image: "/images/prot-ar.jpg",
+    path: "/category/environment",
   },
   {
     title: "Disaster Management",
-    icon: Shield,
+    icon: "shield",
     description: "Early warning systems and disaster response planning",
     color: "red",
     applications: 6 ,
-    image: "/images/floods.png",
-    path: "app/category/disaster-management/page.tsx",
+    image: "/images/dis.jpeg",
+    path: "/category/disaster-management",
   },
   {
     title: "Health",
@@ -51,7 +48,8 @@ const categories = [
     description: "Healthcare facility mapping and epidemic tracking",
     color: "pink",
     applications: 2,
-    image: "/images/health.jpeg",
+    image: "/images/health4.jpg",
+    path: "/category/health",
   },
   {
     title: "Education",
@@ -60,6 +58,7 @@ const categories = [
     color: "indigo",
     applications: 1,
     image: "/images/library.jpeg",
+    path: "/category/education",
   },
   {
     title: "Land ",
@@ -67,7 +66,8 @@ const categories = [
     description: "Land use planning and resource management",
     color: "amber",
     applications: 1,
-    image: "/images/lnd.jpg",
+    image: "/images/Land5.jpg",
+    path: "/category/land",
   },
   {
     title: "Mining",
@@ -75,7 +75,8 @@ const categories = [
     description: "Mineral resource mapping and mining operations",
     color: "gray",
     applications: 1,
-    image: "/images/mining.jpg",
+    image: "/images/mining1.jpg",
+    path: "/category/mining",
   },
   {
     title: "Local Government",
@@ -83,146 +84,48 @@ const categories = [
     description: "Administrative boundaries and public service mapping",
     color: "purple",
     applications: 1,
-    image: "/images/education.jpeg",
-    path: "app/category/local-government/page.tsx",
+    image: "/images/gov.jpg",
+    path: "/category/local-government",
   },
   {
     title: "Population",
-    icon: User2,
+    icon: "user",
     description: "Demographic data and population distribution analysis",
     color: "orange",
     applications: 1,
-    image: "/images/population.jpg",
+    image: "/images/pop2.jpg",
+    path: "/category/population",
   },
   {
     title: "Finance ",
-    icon: TrendingUp,
+    icon: "trending-up",
     description: "Financial services mapping",
     color: "yellow",
     applications: 1,
     image: "/images/finance.jpg",
+    path: "/category/finance",
   },
   {
     title: "Trade",
-    icon: TrendingUp,
+    icon: "trending-up",
     description: "Market analysis and trade routes mapping",
     color: "yellow",
     applications: 1,
-    image: "/images/trade.jpg",
+    image: "/images/market.png",
+    path: "/category/trade",
+  },
   
-  }
-
 ]
 
 export default function CategorySection() {
-  const [searchTerm, setSearchTerm] = useState("")
-  const [activeFilter, setActiveFilter] = useState("all")
-  const [animatedCategories, setAnimatedCategories] = useState<string[]>([])
-
-  // Animate categories one by one for initial load effect
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      categories.forEach((category, index) => {
-        setTimeout(() => {
-          setAnimatedCategories((prev) => [...prev, category.title])
-        }, index * 150)
-      })
-    }, 500)
-
-    return () => clearTimeout(timer)
-  }, [])
-
-  const filteredCategories = categories.filter((category) =>
-    category.title.toLowerCase().includes(searchTerm.toLowerCase()),
-  )
-
-  const sortedCategories = [...filteredCategories].sort((a, b) => {
-    if (activeFilter === "name") {
-      return a.title.localeCompare(b.title)
-    } else if (activeFilter === "popular") {
-      return b.applications - a.applications
-    }
-    return 0
-  })
-
+  const router = useRouter()
   return (
-    <div className="container relative z-10 px-4 mx-auto">
-      <ScrollReveal>
-        <div className="text-center mb-8 sm:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-3 sm:mb-4">Explore Categories</h2>
-          <p className="text-base sm:text-lg text-white max-w-3xl mx-auto px-4">
-            Discover geospatial applications across various sectors to support Rwanda's development goals
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto mt-6 sm:mt-8 px-4">
-            <div className="relative flex-grow">
-              <Input
-                type="text"
-                placeholder="Search categories..."
-                className="pl-12 py-4 sm:py-6 text-base sm:text-lg bg-white/80 backdrop-blur-md border-slate-200 text-slate-800"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-slate-400" />
-            </div>
-            <div className="flex flex-wrap sm:flex-nowrap gap-2 justify-center sm:justify-start">
-              <Button
-                variant={activeFilter === "all" ? "default" : "outline"}
-                onClick={() => setActiveFilter("all")}
-                className={`text-sm sm:text-base ${activeFilter === "all" ? "bg-sky-600 hover:bg-sky-700" : "border-slate-200 text-slate-600"}`}
-              >
-                All
-              </Button>
-              <Button
-                variant={activeFilter === "name" ? "default" : "outline"}
-                onClick={() => setActiveFilter("name")}
-                className={`text-sm sm:text-base ${activeFilter === "name" ? "bg-sky-600 hover:bg-sky-700" : "border-slate-200 text-slate-600"}`}
-              >
-                A-Z
-              </Button>
-              <Button
-                variant={activeFilter === "popular" ? "default" : "outline"}
-                onClick={() => setActiveFilter("popular")}
-                className={`text-sm sm:text-base ${
-                  activeFilter === "popular" ? "bg-sky-600 hover:bg-sky-700" : "border-slate-200 text-slate-600"
-                }`}
-              >
-                Popular
-              </Button>
-            </div>
-          </div>
-        </div>
-      </ScrollReveal>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 mt-8 sm:mt-12 px-4">
-        {sortedCategories.length > 0 ? (
-          sortedCategories.map((category, index) => (
-            <div
-              key={category.title}
-              className={`transition-all duration-700 transform ${
-                animatedCategories.includes(category.title) ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-              }`}
-            >
-              <CategoryCard
-                title={category.title}
-                icon={category.icon}
-                description={category.description}
-                color={category.color}
-                applications={category.applications}
-                image={category.image}
-                path={category.path}
-              />
-            </div>
-          ))
-        ) : (
-          <div className="col-span-full text-center py-12">
-            <p className="text-xl text-slate-600">No categories found matching "{searchTerm}"</p>
-            <Button variant="link" className="text-sky-600 mt-2" onClick={() => setSearchTerm("")}>
-              Clear search
-            </Button>
-          </div>
-        )}
-      </div>
+    <div className="w-full min-h-screen flex flex-col justify-center items-center bg-slate-900/85 backdrop-blur-sm">
+      <h2 className="text-3xl md:text-4xl font-bold text-white mb-8 drop-shadow-lg">Explore Categories</h2>
+      <CategoryCarousel
+        categories={categories}
+        onCardClick={(path) => router.push(path)}
+      />
     </div>
   )
 }

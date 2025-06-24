@@ -59,7 +59,7 @@ export default function FeaturedApp({ title, category, image, description, url }
             className="text-xs sm:text-sm bg-sky-600 hover:bg-sky-700" 
             onClick={handleLaunch}
           >
-            <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" /> Launch
+            <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" /> Explore App
           </Button>
         </div>
       </div>
