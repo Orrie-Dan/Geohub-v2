@@ -62,7 +62,7 @@ export default function LocalGovernmentPage() {
       {/* Header */}
       <div className="relative h-64 overflow-hidden">
         <Image
-          src="/images/gov.jpg"
+          src="/images/loc-gov.jpg"
           alt="Local Government"
           fill
           className="object-cover"
@@ -103,7 +103,7 @@ export default function LocalGovernmentPage() {
               </div>
             </div>
             <div className="relative">
-              <Image src="/images/gov.jpg" alt="Local Government" width={600} height={400} className="rounded-lg shadow-2xl" />
+              <Image src="/images/loc-gov.jpg" alt="Local Government" width={600} height={400} className="rounded-lg shadow-2xl" />
             </div>
           </div>
         </div>
