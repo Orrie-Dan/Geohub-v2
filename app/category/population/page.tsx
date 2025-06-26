@@ -19,7 +19,7 @@ const populationApps = [
     image: "/images/pop2.jpg",
     description: "An interactive application for visualizing and analyzing demographic data in Rwanda, including population distribution.",
     keywords: ["population", "demographics", "census", "mapping", "urban planning", "Rwanda", "statistics"],
-    link: "https://gh.space.gov.rw/portal/apps/dashboards/91e041e036184ee3994a189444bd6941"
+    link: "https://nisrgis.maps.arcgis.com/apps/dashboards/48bac3a4e32942a38db92aa4d30ad698"
   }
 ]
 

@@ -23,7 +23,7 @@ const healthApps = [
     image: "/images/health4.jpg",
     description: "A tool for managing health emergencies and mapping disease outbreaks in real-time",
     keywords: ["health", "emergency", "management", "mapping", "disease outbreaks", "real-time"],
-    link: "https://gh.space.gov.rw/portal/apps/experiencebuilder/experience/?id=26f19f93207640eeada7363b577481de",
+    link: "https://gh.space.gov.rw/portal/sharing/rest//oauth2/authorize?client_id=experienceBuilder&response_type=token&expiration=20160&redirect_uri=https%3A%2F%2Fgh.space.gov.rw%2Fportal%2Fapps%2Fexperiencebuilder%2Fjimu-core%2Foauth-callback.html%3FclientId%3DexperienceBuilder%26portal%3Dhttps%3A%2F%2Fgh.space.gov.rw%2Fportal%2Fsharing%2Frest%2F%26popup%3Dfalse%26isInPortal%3Dtrue%26isDevEdition%3Dfalse%26isOutOfExb%3Dfalse%26mountPath%3D%2Fportal%2Fapps%2Fexperiencebuilder%2F%26fromUrl%3Dhttps%253A%252F%252Fgh.space.gov.rw%252Fportal%252Fapps%252Fexperiencebuilder%252Fexperience%252F%253Fid%253D302e2ecb7f264c36970633871a5d0a84&state=experienceBuilder&locale=&showSignupOption=true&signupType=esri&force_login=false",
   },
   
 ]
