@@ -23,6 +23,7 @@ const populationApps = [
   }
 ]
 
+
 export default function PopulationApps() {
   const [searchQuery, setSearchQuery] = useState('')
   const [viewMode, setViewMode] = useState('grid') // 'grid' or 'list'
