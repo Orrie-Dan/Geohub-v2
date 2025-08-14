@@ -20,7 +20,7 @@ const financeTradeApps = [
     image: "/images/finance.jpg",
     description: "A comprehensive mapping application for property tax management in Rwanda.",
     keywords: ["property tax", "mapping", "Rwanda", "urban planning", "tax collection"],
-    link: "https://gh.space.gov.rw/portal/home/item.html?id=7978f28223b5468aafc732aa64750bd5"
+    link: "https://gh.space.gov.rw/portal/apps/dashboards/d0503647f4d44d24b4917b45d9bfc408"
   },
 ]
 

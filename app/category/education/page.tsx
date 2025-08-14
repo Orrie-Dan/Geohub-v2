@@ -15,7 +15,7 @@ const educationApps = [
     image: "/images/school.jpg",
     description: "Comprehensive digital learning platform aligned with Rwanda's national curriculum, featuring interactive lessons and progress tracking for primary and secondary students",
     keywords: ["k12", "curriculum", "primary", "secondary", "learning", "education", "rwanda"],
-    link: "https://gh.space.gov.rw/portal/home/item.html?id=dbdfdfc8d9864a5da4669e1387754b95" 
+    link: "https://gh.space.gov.rw/portal/apps/experiencebuilder/experience/?id=e94e1792f13a4f1082ab8ed16c82c3ff" 
   }
 ]
 
