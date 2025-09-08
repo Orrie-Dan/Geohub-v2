@@ -16,7 +16,7 @@ const tourismApps = [
     image: "/images/Land5.jpg",
     description: "An advanced surveying and mapping application for land parcels, utilizing high-resolution satellite imagery and GIS technology.",
     keywords: ["land", "surveying", "mapping", "GIS"],
-    link: "https://esrirw.rw/portal/apps/dashboards/9adc66199226432699552b4ee0346a72",
+    link: "https://gh.space.gov.rw/portal/apps/experiencebuilder/experience/?id=164589648e2c4e198c40ff1c462bf6e5",
   }
 ]
 

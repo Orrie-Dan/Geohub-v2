@@ -51,7 +51,7 @@ const disasterApps = [
     image: "/images/emergency response.jpg",
     description: "Emergency response operations mapping tool for resource allocation, and recovery planning",
     keywords: ["emergency", "response", "operations", "mapping", "resource allocation", "recovery planning"],
-    Link: "https://gh.space.gov.rw/portal/apps/webappviewer/index.html?id=102317e8b82544c7867f11329d7e1b51"
+    Link: "https://gh.space.gov.rw/portal/apps/experiencebuilder/experience/?id=b686f37a06e0440496232917e76d01ae"
   },
   {
     id: 6,
@@ -60,7 +60,7 @@ const disasterApps = [
     image: "/images/reporting2.jpg",
     description: "Community-based emergency reporting application for citizens to report incidents, hazards, and emergencies",
     keywords: ["citizens", "emergency", "reporting", "application", "community", "hazards", "incidents"],
-    Link: "https://gh.space.gov.rw/portal/apps/dashboards/54565775943645309ffdd5aee7b76f60"
+    Link: "https://citizensemergencyreportingapp.netlify.app/"
   }
   
 ]

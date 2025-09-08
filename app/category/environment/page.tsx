@@ -28,7 +28,7 @@ const environmentalApps = [
     image: "/images/biod.jpg",
     description: "A platform for mapping and monitoring biodiversity hotspots, tracking species distribution, and assessing ecosystem health",
     keywords: ["biodiversity", "mapping", "monitoring", "species distribution", "ecosystem health", "hotspots"],
-    launchUrl: "https://gh.space.gov.rw/portal/apps/dashboards/aa5f474c713a48b8b35ebc116c7bbebb",  
+    launchUrl: "https://gh.space.gov.rw/portal/apps/experiencebuilder/experience/?id=3ab8b6b4c4274eafa6cbfffddee3c338",  
   },
   {
     id: 3,
