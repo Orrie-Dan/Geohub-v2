@@ -123,7 +123,7 @@ export default function Home() {
                   category="conservation"
                   image="/images/gorilla.jpg"
                   description="Monitor and protect Rwanda's wildlife through spatial analysis"
-                  url="https://gh.space.gov.rw/portal/home/item.html?id=441bd8847a434397b8e945fe9a8d7852"
+                  url="https://gh.space.gov.rw/portal/apps/dashboards/952a60d1106545c3a034a4f3d79d9cc2"
                 />
               </ScrollReveal>
             </div>
