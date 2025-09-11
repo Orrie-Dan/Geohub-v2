@@ -15,7 +15,7 @@ const disasterApps = [
     image: "/images/landslide2.jpg",
     description: "Real-time monitoring and alert system for landslides in Rwanda, providing early warnings and risk assessments",
     keywords: ["landslides", "monitoring", "alerts", "real-time", "risk assessment", "early warning"],
-    Link: "https://gh.space.gov.rw/portal/home/item.html?id=89f13f64a695414bbe6be1f48570f4bb"
+    Link: "https://gh.space.gov.rw/portal/apps/dashboards/bfc8d4a4492b4ad29f845edb2e41f6cb"
   },
   {
     id: 2,
