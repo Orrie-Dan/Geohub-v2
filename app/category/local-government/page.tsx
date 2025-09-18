@@ -20,6 +20,24 @@ const governmentServices = [
     description: "A digital platform for managing emergency situations at the district level, providing real-time data and coordination tools.",
     link: "https://gh.space.gov.rw/portal/apps/experiencebuilder/experience/?id=1c59d1e09b844e5b9d5d0763878fca1a",
     keywords: ["emergency", "management", "district", "coordination"],
+  },
+  {
+    id: 2,
+    title: "Rubavu Inspection Hub",
+    category: "Building Inspection",
+    image: "/images/Rubavu.png",
+    description: "Digital platform for monitoring and inspecting illegal buildings in Rubavu district, ensuring compliance with building regulations and urban planning standards.",
+    link: "https://gh.space.gov.rw/portal/apps/experiencebuilder/experience/?id=5957ad92854b4814abfa1195d7966779",
+    keywords: ["inspection", "illegal buildings", "compliance", "urban planning", "rubavu", "monitoring"],
+  },
+  {
+    id: 3,
+    title: "Bugesera Inspection Hub",
+    category: "Building Inspection",
+    image: "/images/bugesera1.jpg",
+    description: "Comprehensive building inspection system for Bugesera district to identify, track, and manage illegal construction activities and ensure proper urban development.",
+    link: "https://gh.space.gov.rw/portal/apps/experiencebuilder/experience/?id=6dddd4f551594045891797d636a3298e&page=Detected-Buildings",
+    keywords: ["inspection", "illegal buildings", "compliance", "urban planning", "bugesera", "construction"],
   }
   
 ]
@@ -112,18 +130,18 @@ export default function LocalGovernmentPage() {
           <h3 className="text-2xl font-bold text-white mb-8">Available Applications</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredServices.map((service, index) => (
-              <Card key={index} className="bg-slate-800/50 border-slate-700 hover:bg-slate-800/70 transition-colors">
+              <Card key={index} className="bg-slate-800/50 border-slate-700 hover:bg-slate-800/70 transition-colors flex flex-col h-full">
                 <div className="relative h-48 overflow-hidden rounded-t-lg">
                   <Image src={service.image} alt={service.title} fill className="object-cover" />
                   <div className="absolute top-4 right-4">
                     <span className="px-2 py-1 text-xs font-medium bg-sky-500/20 text-sky-400 border border-sky-500/30 rounded-full">{service.category}</span>
                   </div>
                 </div>
-                <CardHeader>
+                <CardHeader className="flex-1">
                   <CardTitle className="text-white">{service.title}</CardTitle>
                   <CardDescription className="text-slate-300">{service.description}</CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="mt-auto">
                   <Button asChild className="w-full bg-sky-600 hover:bg-sky-700">
                     <Link href={service.link} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="h-4 w-4 mr-2" />Open Application
