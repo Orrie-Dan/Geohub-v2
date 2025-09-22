@@ -17,7 +17,17 @@ const tourismApps = [
     description: "An advanced surveying and mapping application for land parcels, utilizing high-resolution satellite imagery and GIS technology.",
     keywords: ["land", "surveying", "mapping", "GIS"],
     link: "https://gh.space.gov.rw/portal/apps/experiencebuilder/experience/?id=164589648e2c4e198c40ff1c462bf6e5",
+  },
+  {
+    id: 2,
+    title: "Average Land Cover Dynamics",
+    category: "Land Management",
+    image: "/images/Land6.png",
+    description: "A comprehensive dashboard for analyzing and visualizing land cover dynamics across Rwanda, utilizing high-resolution satellite imagery and GIS technology.",
+    keywords: ["land", "parcel", "management", "GIS"],
+    link: "https://gh.space.gov.rw/portal/apps/dashboards/1dbaae64924b4f7696272d9d503a94f1",
   }
+
 ]
 
 export default function LandApps() {
