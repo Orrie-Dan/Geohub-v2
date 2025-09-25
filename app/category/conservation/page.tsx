@@ -112,7 +112,7 @@ export default function ConservationPage() {
           <h3 className="text-2xl font-bold text-white mb-8">Available Applications</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {applications.map((app, index) => (
-              <Card key={index} className="bg-slate-800/50 border-slate-700 hover:bg-slate-800/70 transition-colors">
+              <Card key={index} className="bg-slate-800/50 border-slate-700 hover:bg-slate-800/70 transition-colors flex flex-col h-full">
                 <div className="relative h-48 overflow-hidden rounded-t-lg">
                   <Image
                     src={app.image}
@@ -129,13 +129,13 @@ export default function ConservationPage() {
                     </Badge>
                   </div>
                 </div>
-                <CardHeader>
+                <CardHeader className="flex-1">
                   <CardTitle className="text-white">{app.title}</CardTitle>
                   <CardDescription className="text-slate-300">
                     {app.description}
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="mt-auto">
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-2 text-sm text-slate-400">
                       <Users className="h-4 w-4" />

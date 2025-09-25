@@ -183,7 +183,7 @@ export default function AgriculturalApps() {
           <h3 className="text-2xl font-bold text-white mb-8">Available Applications</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredApps.map((app, index) => (
-              <Card key={index} className="bg-slate-800/50 border-slate-700 hover:bg-slate-800/70 transition-colors">
+              <Card key={index} className="bg-slate-800/50 border-slate-700 hover:bg-slate-800/70 transition-colors flex flex-col h-full">
                 <div className="relative h-48 overflow-hidden rounded-t-lg">
                   <Image
                     src={app.image}
@@ -197,13 +197,13 @@ export default function AgriculturalApps() {
                     </span>
                   </div>
                 </div>
-                <CardHeader>
+                <CardHeader className="flex-1">
                   <CardTitle className="text-white">{app.title}</CardTitle>
                   <CardDescription className="text-slate-300">
                     {app.description}
                   </CardDescription>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="mt-auto">
                   <Button 
                     asChild 
                     className="w-full bg-sky-600 hover:bg-sky-700"
