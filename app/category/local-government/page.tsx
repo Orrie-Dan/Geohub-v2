@@ -27,7 +27,7 @@ const governmentServices = [
     category: "Building Inspection",
     image: "/images/Rubavu.png",
     description: "Digital platform for monitoring and inspecting illegal buildings in Rubavu district, ensuring compliance with building regulations and urban planning standards.",
-    link: "https://gh.space.gov.rw/portal/apps/experiencebuilder/experience/?id=5957ad92854b4814abfa1195d7966779",
+    link: "https://gh.space.gov.rw/portal/apps/experiencebuilder/experience/?id=5957ad92854b4814abfa1195d7966779&views=Construction-Permit-Monitoring",
     keywords: ["inspection", "illegal buildings", "compliance", "urban planning", "rubavu", "monitoring"],
   },
   {
@@ -36,9 +36,19 @@ const governmentServices = [
     category: "Building Inspection",
     image: "/images/bugesera1.jpg",
     description: "Comprehensive building inspection system for Bugesera district to identify, track, and manage illegal construction activities and ensure proper urban development.",
-    link: "https://gh.space.gov.rw/portal/apps/experiencebuilder/experience/?id=6dddd4f551594045891797d636a3298e&page=Detected-Buildings",
+    link: "https://gh.space.gov.rw/portal/apps/experiencebuilder/experience/?id=7934d3e5ad184ab6b0ce152b17b3b2b6&page=Bugesera-Inspection-Hub&views=Construction-Permit-Monitoring",
     keywords: ["inspection", "illegal buildings", "compliance", "urban planning", "bugesera", "construction"],
-  }
+  },
+  {
+    id: 4,
+    title: "Rwamagana Inspection Hub",
+    category: "Building Inspection",
+    image: "/images/rwamagana.jpg",
+    description: "Comprehensive building inspection system for Kigali district to identify, track, and manage illegal construction activities and ensure proper urban development.",
+    link: "https://gh.space.gov.rw/portal/apps/experiencebuilder/experience/?id=cd4306d6709f4e799e0208eefc144446&page=Bugesera-Inspection-Hub&views=Construction-Permit-Monitoring",
+    keywords: ["inspection", "illegal buildings", "compliance", "urban planning", "kigali", "construction"],
+  },
+  
   
 ]
 
