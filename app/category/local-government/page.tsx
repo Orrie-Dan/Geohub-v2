@@ -90,7 +90,7 @@ export default function LocalGovernmentPage() {
       {/* Header */}
       <div className="relative h-64 overflow-hidden">
         <Image
-          src="/images/loc-gov.jpg"
+          src="/geohub/images/loc-gov.jpg"
           alt="Local Government"
           fill
           className="object-cover"
@@ -131,7 +131,7 @@ export default function LocalGovernmentPage() {
               </div>
             </div>
             <div className="relative">
-              <Image src="/images/loc-gov.jpg" alt="Local Government" width={600} height={400} className="rounded-lg shadow-2xl" />
+              <Image src="/geohub/images/loc-gov.jpg" alt="Local Government" width={600} height={400} className="rounded-lg shadow-2xl" />
             </div>
           </div>
         </div>
@@ -142,7 +142,7 @@ export default function LocalGovernmentPage() {
             {filteredServices.map((service, index) => (
               <Card key={index} className="bg-slate-800/50 border-slate-700 hover:bg-slate-800/70 transition-colors flex flex-col h-full">
                 <div className="relative h-48 overflow-hidden rounded-t-lg">
-                  <Image src={service.image} alt={service.title} fill className="object-cover" />
+                  <Image src={"/geohub"+service.image} alt={service.title} fill className="object-cover" />
                   <div className="absolute top-4 right-4">
                     <span className="px-2 py-1 text-xs font-medium bg-sky-500/20 text-sky-400 border border-sky-500/30 rounded-full">{service.category}</span>
                   </div>

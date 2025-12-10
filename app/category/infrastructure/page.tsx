@@ -93,7 +93,7 @@ export default function InfrastructureApps() {
       {/* Header */}
       <div className="relative h-64 overflow-hidden">
         <img
-          src="/images/Infrastructure.jpg"
+          src="/geohub/images/Infrastructure.jpg"
           alt="Infrastructure"
           className="w-full h-full object-cover"
         />

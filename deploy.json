@@ -1,0 +1,7 @@
+{
+"apps" : [{
+"name" : "geohub-client",
+"script" : "./node_modules/next/dist/bin/next",
+"env":{
+	"PORT": "4000"
+}}]}

@@ -34,7 +34,7 @@ export default function ConservationPage() {
       {/* Header */}
       <div className="relative h-64 overflow-hidden">
         <Image
-          src="/images/gorilla.jpg"
+          src="/geohub/images/gorilla.jpg"
           alt="Conservation"
           fill
           className="object-cover"

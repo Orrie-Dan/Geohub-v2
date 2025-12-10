@@ -113,7 +113,7 @@ export default function AgriculturalApps() {
       {/* Header */}
       <div className="relative h-64 overflow-hidden">
         <Image
-          src="/images/agr1.jpg"
+          src="/geohub/images/agr1.jpg"
           alt="Agriculture"
           fill
           className="object-cover"
@@ -168,7 +168,7 @@ export default function AgriculturalApps() {
             </div>
             <div className="relative">
               <Image
-                src="/images/agr.jpg"
+                src="/geohub/images/agr.jpg"
                 alt="Agriculture"
                 width={600}
                 height={400}
@@ -186,7 +186,7 @@ export default function AgriculturalApps() {
               <Card key={index} className="bg-slate-800/50 border-slate-700 hover:bg-slate-800/70 transition-colors flex flex-col h-full">
                 <div className="relative h-48 overflow-hidden rounded-t-lg">
                   <Image
-                    src={app.image}
+                    src={"/geohub"+app.image}
                     alt={app.title}
                     fill
                     className="object-cover"

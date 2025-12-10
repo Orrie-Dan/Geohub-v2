@@ -60,7 +60,7 @@ export default function LandApps() {
       {/* Header */}
       <div className="relative h-64 overflow-hidden">
         <Image
-          src="/images/land3.jpg"
+          src="/geohub/images/land3.jpg"
           alt="Land Management"
           fill
           className="object-cover"

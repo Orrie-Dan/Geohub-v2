@@ -46,7 +46,7 @@ export default function HealthApps() {
       {/* Header */}
       <div className="relative h-64 overflow-hidden">
         <img
-          src="/images/health4.jpg"
+          src="/geohub/images/health4.jpg"
           alt="Health"
           className="w-full h-full object-cover"
         />

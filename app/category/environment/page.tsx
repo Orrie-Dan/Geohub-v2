@@ -85,7 +85,7 @@ export default function EnvironmentalApps() {
       {/* Header */}
       <div className="relative h-64 overflow-hidden">
         <Image
-          src="/images/environment.jpeg"
+          src="/geohub/images/environment.jpeg"
           alt="Environment"
           fill
           className="object-cover"

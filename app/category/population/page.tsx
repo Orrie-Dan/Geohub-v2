@@ -62,7 +62,7 @@ export default function PopulationApps() {
       {/* Header */}
       <div className="relative h-64 overflow-hidden">
         <img
-          src="/images/pop2.jpg"
+          src="/geohub/images/pop2.jpg"
           alt="Population"
           className="w-full h-full object-cover"
         />
@@ -113,7 +113,7 @@ export default function PopulationApps() {
             {filteredApps.map((app, index) => (
               <Card key={index} className="bg-slate-800/50 border-slate-700 hover:bg-slate-800/70 transition-colors flex flex-col h-full">
                 <div className="relative h-48 overflow-hidden rounded-t-lg">
-                  <img src={app.image} alt={app.title} className="w-full h-full object-cover" />
+                  <img src={"/geohub"+app.image} alt={app.title} className="w-full h-full object-cover" />
                   <div className="absolute top-4 right-4">
                     <span className="px-2 py-1 text-xs font-medium bg-sky-500/20 text-sky-400 border border-sky-500/30 rounded-full">{app.category}</span>
                   </div>

@@ -52,7 +52,7 @@ export default function FinanceApps() {
       {/* Header */}
       <div className="relative h-64 overflow-hidden">
         <img
-          src="/images/finance.jpg"
+          src="/geohub/images/finance.jpg"
           alt="Finance"
           className="w-full h-full object-cover"
         />

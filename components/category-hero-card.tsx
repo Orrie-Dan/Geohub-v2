@@ -9,7 +9,7 @@ export default function CategoryHeroCard({ title, image, onClick }: {
     <div className="relative w-full h-screen flex items-center justify-center">
       {/* Background Image */}
       <Image
-        src={image}
+        src={`/geohub${image}`}
         alt={title}
         fill
         className="object-cover z-0"

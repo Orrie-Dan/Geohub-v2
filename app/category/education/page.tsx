@@ -66,7 +66,7 @@ export default function EducationApps() {
       {/* Header */}
       <div className="relative h-64 overflow-hidden">
         <img
-          src="/images/education.jpeg"
+          src="/geohub/images/education.jpeg"
           alt="Education"
           className="w-full h-full object-cover"
         />

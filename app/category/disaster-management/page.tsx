@@ -100,7 +100,7 @@ export default function DisasterManagement() {
       {/* Header */}
       <div className="relative h-64 overflow-hidden">
         <Image
-          src="/images/dis.jpeg"
+          src="/geohub/images/dis.jpeg"
           alt="Disaster Management"
           fill
           className="object-cover"
