@@ -17,7 +17,7 @@ const populationApps = [
     title: "Demographic Data Distribution, Analysis and Mapping Application",
     category: "Demographics",
     image: "/images/pop2.jpg",
-    description: "An interactive application for visualizing and analyzing demographic data in Rwanda, including population distribution.",
+    description: "Monitoring Rwanda's population demographics and distribution patterns across administrative regions",
     keywords: ["population", "demographics", "census", "mapping", "urban planning", "Rwanda", "statistics"],
     link: "https://gh.space.gov.rw/portal/apps/dashboards/054b8ed856e34779be12f71f8d69356b"
   }

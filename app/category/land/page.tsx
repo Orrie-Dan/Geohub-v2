@@ -8,16 +8,6 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/com
 
 // Tourism application data
 const tourismApps = [
-  
-  {
-    id: 1,
-    title: "Parcels Surveying and Mapping Application",
-    category: "Land Management",
-    image: "/images/Land5.jpg",
-    description: "An advanced surveying and mapping application for land parcels, utilizing high-resolution satellite imagery and GIS technology.",
-    keywords: ["land", "surveying", "mapping", "GIS"],
-    link: "https://gh.space.gov.rw/portal/apps/experiencebuilder/experience/?id=164589648e2c4e198c40ff1c462bf6e5",
-  },
   {
     id: 2,
     title: "Average Land Cover Dynamics",

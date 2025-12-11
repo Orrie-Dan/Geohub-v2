@@ -8,18 +8,8 @@ import { Badge } from "@/components/ui/badge"
 export default function ConservationPage() {
   const applications = [
     {
-      title: "Wildlife Conservation Mapping Application",
-      description: "Monitor and protect Rwanda's wildlife through spatial analysis and habitat mapping",
-      image: "/images/gorilla.jpg",
-      url: "https://gh.space.gov.rw/portal/home/item.html?id=441bd8847a434397b8e945fe9a8d7852",
-      category: "Conservation",
-      status: "Active",
-      lastUpdated: "2024-01-15",
-      users: 150
-    },
-    {
       title: "Protected Areas Management",
-      description: "Comprehensive mapping and management of Rwanda's protected areas and national parks",
+      description: "Platform for protected area monitoring with conservation zones, wildlife incident tracking and standardized reporting workflows",
       image: "/images/protected-areas.jpg",
       url: "#",
       category: "Conservation",
@@ -29,7 +19,7 @@ export default function ConservationPage() {
     },
     {
       title: "Biodiversity Monitoring System",
-      description: "Track biodiversity changes and species distribution across Rwanda",
+      description: "Visualizes Rwanda's biodiversity with taxonomic classifications, species distribution, geographic data and conservation status",
       image: "/images/biodiversity.jpg",
       url: "#",
       category: "Conservation",

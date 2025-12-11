@@ -16,7 +16,7 @@ const financeTradeApps = [
     title: "Trade Centers and Markets Mapping and Profiling App",
     category: " Trade",
     image: "/images/market.png",
-    description: "An interactive application for mapping and profiling trade centers and markets in Rwanda.",
+    description: "Trade centers and markets with household accessibility analysis, service distribution and POIs within proximity zones",
     keywords: ["trade centers", "markets", "mapping", "profiling", "Rwanda", "business intelligence"],
     link: "https://gh.space.gov.rw/portal/apps/dashboards/63ad3a5d137945c999bfc919aeeb79b0"
   }

@@ -13,7 +13,7 @@ const disasterApps = [
     title: "Landslides Profile Mapping App",
     category: "Monitoring and Alerts",
     image: "/images/landslide2.jpg",
-    description: "Real-time monitoring and alert system for landslides in Rwanda, providing early warnings and risk assessments",
+    description: "Maps and analyzes landslide-prone areas, risk assessment and susceptibility zones",
     keywords: ["landslides", "monitoring", "alerts", "real-time", "risk assessment", "early warning"],
     Link: "https://gh.space.gov.rw/portal/apps/dashboards/bfc8d4a4492b4ad29f845edb2e41f6cb"
   },
@@ -22,7 +22,7 @@ const disasterApps = [
     title: "Storms Profile Mapping App",
     category: "Emergency Response Coordination", 
     image: "/images/storm2.jpg",
-    description: "Comprehensive storm response coordination platform for emergency teams, resources, and communication",
+    description: "Tracking tool on storm events with spatial distribution, temporal trends, damage assessments and event type classifications across country",
     keywords: ["storms", "emergency", "response", "coordination", "platform", "communication"],
     Link: "https://gh.space.gov.rw/portal/apps/dashboards/e89c802794114d7d97e4731351de612c"
   },
@@ -31,7 +31,7 @@ const disasterApps = [
     title: "Floods Profile Mapping App",
     category: "Flood Risk Analysis",
     image: "/images/dis.jpeg",
-    description: "Satellite-based flood risk mapping and vulnerability assessment tool for disaster management",
+    description: "Maps and analyzes flood-prone areas, risk assessment and susceptibility zones",
     keywords: ["flood", "mapping", "risk", "satellite", "topography", "vulnerability"],
     Link: "https://gh.space.gov.rw/portal/apps/dashboards/902b4a62d0f4420ab66be44e5ad8d40c"
   },
@@ -40,7 +40,7 @@ const disasterApps = [
     title: "Earthquakes Profile Mapping App",
     category: "Crisis Management",
     image: "/images/earthquake.jpg",
-    description: "Platform for earthquake evacuation route planning, shelter identification, and emergency response optimization",
+    description: "Displays real-time earthquake activity with an interactive map, alerts and historical data analysis",
     keywords: ["earthquakes", "evacuation", "shelter", "planning", "crisis", "management", "response"],
     Link: "https://gh.space.gov.rw/portal/apps/dashboards/cd5411087b9b46b4ac356ae29fe6f3bf"
   },
@@ -49,7 +49,7 @@ const disasterApps = [
     title: "Emergency Response Operations Mapping App",
     category: "Emergency Operations",
     image: "/images/emergency response.jpg",
-    description: "Emergency response operations mapping tool for resource allocation, and recovery planning",
+    description: "Tool to report emergency incidents, analyze impact assessments and visualize response statistics",
     keywords: ["emergency", "response", "operations", "mapping", "resource allocation", "recovery planning"],
     Link: "https://gh.space.gov.rw/portal/apps/experiencebuilder/experience/?id=b686f37a06e0440496232917e76d01ae"
   },
@@ -58,7 +58,7 @@ const disasterApps = [
     title: "Citizens Emergency Reporting App",
     category: "Reporting and Alerts",
     image: "/images/reporting2.jpg",
-    description: "Community-based emergency reporting application for citizens to report incidents, hazards, and emergencies",
+    description: "Public application enabling citizens to report emergencies with geolocation, instant notifications and response management",
     keywords: ["citizens", "emergency", "reporting", "application", "community", "hazards", "incidents"],
     Link: "https://citizensemergencyreportingapp.netlify.app/"
   }

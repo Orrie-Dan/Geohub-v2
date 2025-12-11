@@ -17,7 +17,7 @@ const governmentServices = [
     title: "District Situation Room Application",
     category: " Emergency Management",
     image: "/images/dist.jpg",
-    description: "A digital platform for managing emergency situations at the district level, providing real-time data and coordination tools.",
+    description: "App for district Real-time performance tracking and accountability insights",
     link: "https://gh.space.gov.rw/portal/apps/experiencebuilder/experience/?id=1c59d1e09b844e5b9d5d0763878fca1a",
     keywords: ["emergency", "management", "district", "coordination"],
   },

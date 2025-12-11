@@ -104,7 +104,7 @@ export default function Home() {
                   title="Agriculture Land Profiling and Crops Suitability"
                   category="Agriculture"
                   image="/images/agr1.jpg"
-                  description="Map and analyze agricultural land use patterns across Rwanda"
+                  description="Dive into agricultural land characteristics with soil suitability assessment, productivity potential and optimal farming zones"
                   url="https://gh.space.gov.rw/portal/apps/dashboards/cbf25115208844b3ba46732a110e8ac1"
                 />
               </ScrollReveal>
@@ -113,17 +113,8 @@ export default function Home() {
                   title="Floods Profile Mapping Application"
                   category="Disaster Management"
                   image="/images/dis.jpeg"
-                  description="Identify areas at risk of flooding based on topography and rainfall data"
+                  description="Maps and analyzes flood-prone areas, risk assessment and susceptibility zones"
                   url="https://gh.space.gov.rw/portal/apps/dashboards/72dd1ef9653c436392633b8e32c364d8"
-                />
-              </ScrollReveal>
-              <ScrollReveal delay={300}>
-                <FeaturedApp
-                  title="Wildlife Conservation Mapping Application"
-                  category="conservation"
-                  image="/images/gorilla.jpg"
-                  description="Monitor and protect Rwanda's wildlife through spatial analysis"
-                  url="https://gh.space.gov.rw/portal/apps/dashboards/952a60d1106545c3a034a4f3d79d9cc2"
                 />
               </ScrollReveal>
             </div>

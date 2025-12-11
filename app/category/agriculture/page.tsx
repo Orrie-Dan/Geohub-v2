@@ -17,7 +17,7 @@ const agriculturalApps = [
     title: "Agriculture Land Mapping App",
     category: "agriculture",
     image: "/images/agr1.jpg",
-    description: "A comprehensive tool for mapping and analyzing agricultural land use patterns in Rwanda, integrating satellite imagery and GIS data",
+    description: "Agricultural parcels with land area statistics, parcel counts, size classifications and planned land use",
     keywords: ["agriculture", "mapping", "land use", "GIS", "Rwanda", "farming", "sustainability"],
     link: "https://gh.space.gov.rw/portal/apps/experiencebuilder/experience/?id=6efa04bfc78648729ff1c6332ea08a07"
   },
@@ -26,7 +26,7 @@ const agriculturalApps = [
     title: "Soil Information Mapping App",
     category: "Soil Management",
     image: "/images/soil.jpg", 
-    description: "Monitor soil conditions including pH, moisture, nutrients, and organic matter content across your farmland",
+    description: "Monitors Soil profile nutrients and properties across the country",
     keywords: ["soil", "health", "pH", "moisture", "nutrients", "monitoring", "farmland"],
     link: "https://gh.space.gov.rw/portal/apps/dashboards/f3f886a80baf4b649dd3bbff0db6cf83"
   },
@@ -35,7 +35,7 @@ const agriculturalApps = [
     title: "Agriculture Land Profiling and Crops Suitability App",
     category: "Crop Management",
     image: "/images/agr.jpg",
-    description: "Detect and diagnose crop diseases providing farmers with actionable insights to protect their crops",
+    description: "Dive into agricultural land characteristics with soil suitability assessment, productivity potential and optimal farming zones",
     keywords: ["crop", "disease", "detection", "diagnosis", "AI", "image recognition", "agriculture"],
     link: "https://gh.space.gov.rw/portal/apps/dashboards/cbf25115208844b3ba46732a110e8ac1"
   },
@@ -44,7 +44,7 @@ const agriculturalApps = [
     title: "Animal Resources Distribution Mapping App",
     category: "Animal Resources",
     image: "/images/cow.jpg",
-    description: "A tool for mapping and analyzing the distribution of animal resources in Rwanda, integrating satellite imagery and GIS data",
+    description: "Displays livestock populations and animal product outputs, production volumes and resource composition analysis",
     keywords: ["animal", "resources", "mapping", "distribution", "GIS", "Rwanda", "livestock"],
     link: "https://gh.space.gov.rw/portal/apps/dashboards/e03c654ba8134456a164fd78138055d2"
   }

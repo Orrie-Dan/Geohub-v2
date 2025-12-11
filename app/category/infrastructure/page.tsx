@@ -11,7 +11,7 @@ const infrastructureApps = [
     title: "Rural settlement planning App",
     category: "Housing",
     image: "/images/informal.jpg",
-    description: "Aids in the sustainable design and organization of rural communities by mapping infrastructure, land use, and development needs.",
+    description: "Tool to assess rural communities with land use planning, service distribution, infrastructure needs and development prioritization",
     keywords: ["housing", "planning", "rural", "infrastructure"],
     url: "https://gh.space.gov.rw/portal/apps/dashboards/e7e0645fff854cc9960c4fb26605f0b2"
   },
@@ -20,7 +20,7 @@ const infrastructureApps = [
     title: "Country Infrastructure Mapping App",
     category: "Infrastructure Management",
     image: "/images/infra.png",
-    description: "Helps in the visualization, analysis, and management of national infrastructure to support effective planning and development.",
+    description: "Interactive platform exploring Rwanda's infrastructure for planning and decision-making",
     keywords: ["infrastructure", "mapping", "management", "visualization", "analysis", "planning", "development"],
     url: "https://gh.space.gov.rw/portal/apps/experiencebuilder/experience/?id=ea6c3336fa594af7833ee3e422f225ef"
   },
@@ -29,7 +29,7 @@ const infrastructureApps = [
     title: "Infrastructure Services Accessibility Mapping App",
     category: "Urban and Regional Planning",
     image: "/images/proj-2.jpeg",
-    description: "Helps in the identification and visualization of disparities in access to essential services, enabling data-driven planning and equitable infrastructure development.",
+    description: "Analyzes infrastructure access with service coverage gaps",
     keywords: ["accessibility", "mapping", "services", "urban", "regional", "planning", "infrastructure"],
     url: "https://gh.space.gov.rw/portal/apps/dashboards/0a331d36df3f4e30998b23a027454e5d"
   },
@@ -38,7 +38,7 @@ const infrastructureApps = [
     title: "Informal Settlement Mapping and Monitoring App",
     category: "Housing",
     image: "/images/informal3.jpg",
-    description: "Supports the mapping and monitoring of informal settlements to inform urban development strategies and improve living conditions.",
+    description: "Real-Time tracking of informal settlement distribution and growth monitoring",
     keywords: ["informal", "settlement", "mapping", "monitoring", "urban", "development", "infrastructure"],
     url: "https://gh.space.gov.rw/portal/apps/dashboards/7cc82c4014c4402c93bb3920e05f3d52"
   }

@@ -12,16 +12,6 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/com
 
 // Finance application data
 const financeTradeApps = [
-  
-  {
-    id: 1,
-    title: "Property Tax Mapping App",
-    category: "Finance ",
-    image: "/images/finance.jpg",
-    description: "A comprehensive mapping application for property tax management in Rwanda.",
-    keywords: ["property tax", "mapping", "Rwanda", "urban planning", "tax collection"],
-    link: "https://gh.space.gov.rw/portal/apps/dashboards/d0503647f4d44d24b4917b45d9bfc408"
-  },
 ]
 
 export default function FinanceApps() {
@@ -109,27 +99,72 @@ export default function FinanceApps() {
         {/* Applications Grid */}
         <div className="mb-12">
           <h3 className="text-2xl font-bold text-white mb-8">Available Applications</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredApps.map((app, index) => (
-              <Card key={index} className="bg-slate-800/50 border-slate-700 hover:bg-slate-800/70 transition-colors">
-                <div className="relative h-48 overflow-hidden rounded-t-lg">
-                  <img src={app.image} alt={app.title} className="w-full h-full object-cover" />
-                  <div className="absolute top-4 right-4">
-                    <span className="px-2 py-1 text-xs font-medium bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-full">{app.category}</span>
+          {filteredApps.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredApps.map((app, index) => (
+                <Card key={index} className="bg-slate-800/50 border-slate-700 hover:bg-slate-800/70 transition-colors">
+                  <div className="relative h-48 overflow-hidden rounded-t-lg">
+                    <img src={app.image} alt={app.title} className="w-full h-full object-cover" />
+                    <div className="absolute top-4 right-4">
+                      <span className="px-2 py-1 text-xs font-medium bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 rounded-full">{app.category}</span>
+                    </div>
                   </div>
+                  <CardHeader>
+                    <CardTitle className="text-white">{app.title}</CardTitle>
+                    <CardDescription className="text-slate-300">{app.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <button onClick={() => handleLaunchApp(app.link)} className="w-full bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg flex items-center justify-center">
+                      <ExternalLink className="h-4 w-4 mr-2" />Open Application
+                    </button>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          ) : (
+            <div className="flex flex-col items-center justify-center py-16 px-4">
+              {/* Space-themed icon */}
+              <div className="mb-6 text-6xl animate-pulse">🛰️</div>
+              
+              {/* Main message */}
+              <h4 className="text-2xl font-bold text-white mb-4 text-center">
+                Applications Coming Soon
+              </h4>
+              <p className="text-slate-300 text-center max-w-2xl mb-8">
+                We're working on bringing you powerful finance applications to monitor economic indicators, 
+                track market trends, and support strategic business decisions. Check back soon or explore other categories below.
+              </p>
+              
+              {/* Related categories */}
+              <div className="mb-8">
+                <p className="text-slate-400 text-sm mb-4 text-center">Explore Related Categories:</p>
+                <div className="flex flex-wrap gap-3 justify-center">
+                  <Link href="/category/trade">
+                    <Button variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-700 hover:text-white">
+                      Trade
+                    </Button>
+                  </Link>
+                  <Link href="/category/infrastructure">
+                    <Button variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-700 hover:text-white">
+                      Infrastructure
+                    </Button>
+                  </Link>
+                  <Link href="/category/local-government">
+                    <Button variant="outline" className="border-slate-600 text-slate-300 hover:bg-slate-700 hover:text-white">
+                      Local Government
+                    </Button>
+                  </Link>
                 </div>
-                <CardHeader>
-                  <CardTitle className="text-white">{app.title}</CardTitle>
-                  <CardDescription className="text-slate-300">{app.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <button onClick={() => handleLaunchApp(app.link)} className="w-full bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg flex items-center justify-center">
-                    <ExternalLink className="h-4 w-4 mr-2" />Open Application
-                  </button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+              </div>
+              
+              {/* Contact CTA */}
+              <Button asChild className="bg-emerald-600 hover:bg-emerald-700">
+                <Link href="mailto:info@space.gov.rw">
+                  Contact Us
+                </Link>
+              </Button>
+            </div>
+          )}
         </div>
       </div>
     </div>

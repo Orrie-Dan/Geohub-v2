@@ -17,7 +17,7 @@ const environmentalApps = [
     title: "Protected Area Mapping and Monitoring App",
     category: "Protected Areas",
     image: "/images/prot-ar.jpg",
-    description: "A comprehensive tool for monitoring and managing protected areas in Rwanda, integrating satellite imagery and field data",
+    description: "Platform for protected area monitoring with conservation zones, wildlife incident tracking and standardized reporting workflows",
     keywords: ["protected areas", "mapping", "monitoring", "satellite imagery", "field data", "Rwanda"],
     launchUrl: "https://gh.space.gov.rw/portal/apps/experiencebuilder/experience/?id=935a93ef47564c488f837e84b9777dd9", 
   },
@@ -26,7 +26,7 @@ const environmentalApps = [
     title: "Biodiversity Mapping App",
     category: "Biodiversity",
     image: "/images/biod.jpg",
-    description: "A platform for mapping and monitoring biodiversity hotspots, tracking species distribution, and assessing ecosystem health",
+    description: "Visualizes Rwanda's biodiversity with taxonomic classifications, species distribution, geographic data and conservation status",
     keywords: ["biodiversity", "mapping", "monitoring", "species distribution", "ecosystem health", "hotspots"],
     launchUrl: "https://gh.space.gov.rw/portal/apps/experiencebuilder/experience/?id=3ab8b6b4c4274eafa6cbfffddee3c338",  
   },
@@ -35,20 +35,11 @@ const environmentalApps = [
     title: "Air Quality and Pollution Mapping App",
     category: "Air Monitoring",
     image: "/images/poll.jpg",
-    description: "Real-time air quality monitoring and pollution source identification across urban and rural areas",
+    description: "Monitors and visualizes air pollutant levels and trend analysis across the country",
     features: ["Real-time Monitoring", "Pollution Mapping", "Health Index", "Source Identification"],
     keywords: ["air", "quality", "pollution", "monitoring", "health", "urban", "emissions"],
     launchUrl: "https://gh.space.gov.rw/portal/apps/experiencebuilder/experience/?id=9106a95a8cc34866b24940c607015d28", 
   },
-  {
-    id: 4,
-    title: "Wildlife Conservation Mapping App",
-    category: "Wildlife Conservation",
-    image: "/images/gorilla.jpg",
-    description: "A tool for tracking wildlife populations, migration patterns, and habitat changes using satellite imagery and field data",
-    keywords: ["wildlife", "conservation", "mapping", "tracking", "habitat", "satellite imagery", "migration"],
-    launchUrl: "https://gh.space.gov.rw/portal/apps/dashboards/952a60d1106545c3a034a4f3d79d9cc2",
-  }
 ]
 
 export default function EnvironmentalApps() {
