@@ -19,7 +19,7 @@ const agriculturalApps = [
     image: "/images/agr1.jpg",
     description: "Agricultural parcels with land area statistics, parcel counts, size classifications and planned land use",
     keywords: ["agriculture", "mapping", "land use", "GIS", "Rwanda", "farming", "sustainability"],
-    link: "https://gh.space.gov.rw/portal/apps/experiencebuilder/experience/?id=6efa04bfc78648729ff1c6332ea08a07"
+    link: "https://gh.space.gov.rw/portal/apps/experiencebuilder/experience/?id=3115eb900c3443e3b2cf0732220b4106"
   },
   {
     id: 2,
@@ -28,7 +28,7 @@ const agriculturalApps = [
     image: "/images/soil.jpg", 
     description: "Monitors Soil profile nutrients and properties across the country",
     keywords: ["soil", "health", "pH", "moisture", "nutrients", "monitoring", "farmland"],
-    link: "https://gh.space.gov.rw/portal/apps/dashboards/f3f886a80baf4b649dd3bbff0db6cf83"
+    link: "https://gh.space.gov.rw/portal/apps/dashboards/952a60d1106545c3a034a4f3d79d9cc2"
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ const agriculturalApps = [
     image: "/images/agr.jpg",
     description: "Dive into agricultural land characteristics with soil suitability assessment, productivity potential and optimal farming zones",
     keywords: ["crop", "disease", "detection", "diagnosis", "AI", "image recognition", "agriculture"],
-    link: "https://gh.space.gov.rw/portal/apps/dashboards/cbf25115208844b3ba46732a110e8ac1"
+    link: "https://gh.space.gov.rw/portal/apps/dashboards/b25b3af776574dc8a7f521af5e0f3487"
   },
   {
     id: 4,
@@ -46,7 +46,7 @@ const agriculturalApps = [
     image: "/images/cow.jpg",
     description: "Displays livestock populations and animal product outputs, production volumes and resource composition analysis",
     keywords: ["animal", "resources", "mapping", "distribution", "GIS", "Rwanda", "livestock"],
-    link: "https://gh.space.gov.rw/portal/apps/dashboards/e03c654ba8134456a164fd78138055d2"
+    link: "https://gh.space.gov.rw/portal/apps/dashboards/438e024e293142ca996a1e7ab3afa78c"
   }
 ]
 
