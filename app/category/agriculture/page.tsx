@@ -28,7 +28,7 @@ const agriculturalApps = [
     image: "/images/soil.jpg", 
     description: "Monitors Soil profile nutrients and properties across the country",
     keywords: ["soil", "health", "pH", "moisture", "nutrients", "monitoring", "farmland"],
-    link: "https://gh.space.gov.rw/portal/apps/dashboards/952a60d1106545c3a034a4f3d79d9cc2"
+    link: "https://gh.space.gov.rw/portal/apps/dashboards/bb2735551a6648a1ba5ede6655b1212c"
   },
   {
     id: 3,
