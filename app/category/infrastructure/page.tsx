@@ -31,7 +31,7 @@ const infrastructureApps = [
     image: "/images/proj-2.jpeg",
     description: "Analyzes infrastructure access with service coverage gaps",
     keywords: ["accessibility", "mapping", "services", "urban", "regional", "planning", "infrastructure"],
-    url: "https://gh.space.gov.rw/portal/apps/dashboards/0a331d36df3f4e30998b23a027454e5d"
+    url: "https://gh.space.gov.rw/portal/apps/experiencebuilder/experience/?id=70a0ef22c5ea4bd4ab4c1ad5f3d1489a"
   },
   {
     id: 4,

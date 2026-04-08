@@ -38,7 +38,7 @@ const environmentalApps = [
     description: "Monitors and visualizes air pollutant levels and trend analysis across the country",
     features: ["Real-time Monitoring", "Pollution Mapping", "Health Index", "Source Identification"],
     keywords: ["air", "quality", "pollution", "monitoring", "health", "urban", "emissions"],
-    launchUrl: "https://gh.space.gov.rw/portal/apps/experiencebuilder/experience/?id=9106a95a8cc34866b24940c607015d28", 
+    launchUrl: "https://gh.space.gov.rw/portal/apps/dashboards/75c503067fd2423391d0789c7a4f6f8a", 
   },
 ]
 
