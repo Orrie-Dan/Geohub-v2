@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import { routePath } from "@/lib/utils"
 import { ArrowLeft } from "lucide-react"
 import { SpaceBackground } from "@/components/space-background"
 import { SpaceCard } from "@/components/ui/space-card"
@@ -23,7 +24,7 @@ export default function SpaceThemeDemo() {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="mb-8">
-            <Link href="/" className="flex items-center text-sky-400 hover:text-sky-300 mb-4">
+            <Link href={routePath("/")} className="flex items-center text-sky-400 hover:text-sky-300 mb-4">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Home
             </Link>

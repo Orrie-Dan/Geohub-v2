@@ -1,4 +1,4 @@
-import { assetPath } from "@/lib/utils"
+import { assetPath, routePath } from "@/lib/utils"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowLeft, MapPin, Calendar, Users } from "lucide-react"
@@ -21,7 +21,7 @@ export default function ConservationPage() {
         <div className="absolute inset-0 flex items-center">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 mb-4">
-              <Link href="/">
+              <Link href={routePath("/")}>
                 <Button variant="ghost" size="sm" className="text-white hover:bg-white/10">
                   <ArrowLeft className="h-4 w-4 mr-2" />
                   Back to Home
@@ -81,7 +81,7 @@ export default function ConservationPage() {
         <div className="mb-12">
           <h3 className="text-2xl font-bold text-white mb-8">Related Categories</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <Link href="/category/environment">
+            <Link href={routePath("/category/environment")}>
               <Card className="bg-slate-800/50 border-slate-700 hover:bg-slate-800/70 transition-colors cursor-pointer">
                 <CardContent className="p-6 text-center">
                   <div className="text-3xl mb-2">🌍</div>
@@ -89,7 +89,7 @@ export default function ConservationPage() {
                 </CardContent>
               </Card>
             </Link>
-            <Link href="/category/land">
+            <Link href={routePath("/category/land")}>
               <Card className="bg-slate-800/50 border-slate-700 hover:bg-slate-800/70 transition-colors cursor-pointer">
                 <CardContent className="p-6 text-center">
                   <div className="text-3xl mb-2">🗺️</div>
@@ -97,7 +97,7 @@ export default function ConservationPage() {
                 </CardContent>
               </Card>
             </Link>
-            <Link href="/category/agriculture">
+            <Link href={routePath("/category/agriculture")}>
               <Card className="bg-slate-800/50 border-slate-700 hover:bg-slate-800/70 transition-colors cursor-pointer">
                 <CardContent className="p-6 text-center">
                   <div className="text-3xl mb-2">🌾</div>
@@ -105,7 +105,7 @@ export default function ConservationPage() {
                 </CardContent>
               </Card>
             </Link>
-            <Link href="/category/disaster-management">
+            <Link href={routePath("/category/disaster-management")}>
               <Card className="bg-slate-800/50 border-slate-700 hover:bg-slate-800/70 transition-colors cursor-pointer">
                 <CardContent className="p-6 text-center">
                   <div className="text-3xl mb-2">🛡️</div>

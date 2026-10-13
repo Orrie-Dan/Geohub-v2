@@ -1,4 +1,4 @@
-import { assetPath } from "@/lib/utils"
+import { assetPath, routePath } from "@/lib/utils"
 import Link from "next/link"
 import Image from "next/image"
 import { ArrowLeft, MapPin } from "lucide-react"
@@ -20,7 +20,7 @@ export default function AgriculturalApps() {
         <div className="absolute inset-0 flex items-center">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 mb-4">
-              <Link href="/">
+              <Link href={routePath("/")}>
                 <Button variant="ghost" size="sm" className="text-white hover:bg-white/10">
                   <ArrowLeft className="h-4 w-4 mr-2" />
                   Back to Home

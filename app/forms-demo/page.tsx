@@ -4,6 +4,7 @@ import type React from "react"
 
 import { useState } from "react"
 import Link from "next/link"
+import { routePath } from "@/lib/utils"
 import { ArrowLeft, User, Mail, Lock, Globe, MessageSquare, Rocket, Star } from "lucide-react"
 import { SpaceInput } from "@/components/ui/space-input"
 import {
@@ -76,7 +77,7 @@ export default function FormsDemo() {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="mb-8">
-            <Link href="/" className="flex items-center text-sky-400 hover:text-sky-300 mb-4">
+            <Link href={routePath("/")} className="flex items-center text-sky-400 hover:text-sky-300 mb-4">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Home
             </Link>

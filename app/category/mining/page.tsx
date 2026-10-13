@@ -1,4 +1,4 @@
-import { assetPath } from "@/lib/utils"
+import { assetPath, routePath } from "@/lib/utils"
 import { ArrowLeft, MapPin } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link" // Add this import
@@ -20,7 +20,7 @@ export default function MiningApps() {
         <div className="absolute inset-0 flex items-center">
           <div className="container mx-auto px-4">
             <div className="flex items-center gap-4 mb-4">
-              <Link href="/">
+              <Link href={routePath("/")}>
                 <button className="text-white hover:bg-white/10 flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-800/50 border border-slate-700/50">
                   <ArrowLeft className="h-4 w-4 mr-2" />
                   Back to Home

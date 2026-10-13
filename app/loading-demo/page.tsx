@@ -8,6 +8,7 @@ import { Slider } from "@/components/ui/slider"
 import { Switch } from "@/components/ui/switch"
 import { Label } from "@/components/ui/label"
 import Link from "next/link"
+import { routePath } from "@/lib/utils"
 import { ArrowLeft } from "lucide-react"
 
 export default function LoadingDemo() {
@@ -39,7 +40,7 @@ export default function LoadingDemo() {
     <div className="min-h-screen bg-slate-950 text-white p-8">
       <div className="max-w-4xl mx-auto">
         <div className="mb-8">
-          <Link href="/" className="flex items-center text-sky-400 hover:text-sky-300 mb-4">
+          <Link href={routePath("/")} className="flex items-center text-sky-400 hover:text-sky-300 mb-4">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Home
           </Link>
