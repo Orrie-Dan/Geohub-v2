@@ -1,40 +1,18 @@
+import { assetPath } from "@/lib/utils"
 import Link from "next/link"
 import Image from "next/image"
-import { ArrowLeft, ExternalLink, MapPin, Calendar, Users } from "lucide-react"
+import { ArrowLeft, MapPin, Calendar, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
+import { Card, CardContent } from "@/components/ui/card"
+import CategorySignIn from "@/components/category-sign-in"
 
 export default function ConservationPage() {
-  const applications = [
-    {
-      title: "Protected Areas Management",
-      description: "Platform for protected area monitoring with conservation zones, wildlife incident tracking and standardized reporting workflows",
-      image: "/images/protected-areas.jpg",
-      url: "#",
-      category: "Conservation",
-      status: "Development",
-      lastUpdated: "2024-01-10",
-      users: 75
-    },
-    {
-      title: "Biodiversity Monitoring System",
-      description: "Visualizes Rwanda's biodiversity with taxonomic classifications, species distribution, geographic data and conservation status",
-      image: "/images/biodiversity.jpg",
-      url: "#",
-      category: "Conservation",
-      status: "Planning",
-      lastUpdated: "2024-01-05",
-      users: 25
-    }
-  ]
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       {/* Header */}
       <div className="relative h-64 overflow-hidden">
         <Image
-          src="/geohub/images/gorilla.jpg"
+          src={assetPath("/images/gorilla.jpg")}
           alt="Conservation"
           fill
           className="object-cover"
@@ -87,7 +65,7 @@ export default function ConservationPage() {
             </div>
             <div className="relative">
               <Image
-                src="/images/biodiversity.jpg"
+                src={assetPath("/images/biodiversity.jpg")}
                 alt="Conservation"
                 width={600}
                 height={400}
@@ -97,58 +75,7 @@ export default function ConservationPage() {
           </div>
         </div>
 
-        {/* Applications Grid */}
-        <div className="mb-12">
-          <h3 className="text-2xl font-bold text-white mb-8">Available Applications</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {applications.map((app, index) => (
-              <Card key={index} className="bg-slate-800/50 border-slate-700 hover:bg-slate-800/70 transition-colors flex flex-col h-full">
-                <div className="relative h-48 overflow-hidden rounded-t-lg">
-                  <Image
-                    src={app.image}
-                    alt={app.title}
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute top-4 right-4">
-                    <Badge 
-                      variant={app.status === "Active" ? "default" : app.status === "Development" ? "secondary" : "outline"}
-                      className="bg-slate-900/80 text-white"
-                    >
-                      {app.status}
-                    </Badge>
-                  </div>
-                </div>
-                <CardHeader className="flex-1">
-                  <CardTitle className="text-white">{app.title}</CardTitle>
-                  <CardDescription className="text-slate-300">
-                    {app.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="mt-auto">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-2 text-sm text-slate-400">
-                      <Users className="h-4 w-4" />
-                      {app.users} users
-                    </div>
-                    <div className="text-sm text-slate-400">
-                      Updated {app.lastUpdated}
-                    </div>
-                  </div>
-                  <Button 
-                    asChild 
-                    className="w-full bg-sky-600 hover:bg-sky-700"
-                  >
-                    <Link href={app.url} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="h-4 w-4 mr-2" />
-                      Open Application
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
+        <CategorySignIn slug="conservation" title="Conservation" />
 
         {/* Related Categories */}
         <div className="mb-12">

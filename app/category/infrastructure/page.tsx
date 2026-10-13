@@ -1,99 +1,15 @@
-"use client"
+import { assetPath } from "@/lib/utils"
 import Link from "next/link"
-import { useState, useMemo, useCallback } from "react"
-import { Search, ArrowLeft, ExternalLink, Grid, List, X, MapPin } from "lucide-react"
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card"
-
-// Infrastructure application data with working images
-const infrastructureApps = [
-  {
-    id: 1,
-    title: "Rural settlement planning App",
-    category: "Housing",
-    image: "/images/informal.jpg",
-    description: "Tool to assess rural communities with land use planning, service distribution, infrastructure needs and development prioritization",
-    keywords: ["housing", "planning", "rural", "infrastructure"],
-    url: "https://gh.space.gov.rw/portal/apps/dashboards/e7e0645fff854cc9960c4fb26605f0b2"
-  },
-  {
-    id: 2,
-    title: "Country Infrastructure Mapping App",
-    category: "Infrastructure Management",
-    image: "/images/infra.png",
-    description: "Interactive platform exploring Rwanda's infrastructure for planning and decision-making",
-    keywords: ["infrastructure", "mapping", "management", "visualization", "analysis", "planning", "development"],
-    url: "https://gh.space.gov.rw/portal/apps/experiencebuilder/experience/?id=ea6c3336fa594af7833ee3e422f225ef"
-  },
-  {
-    id: 3,
-    title: "Infrastructure Services Accessibility Mapping App",
-    category: "Urban and Regional Planning",
-    image: "/images/proj-2.jpeg",
-    description: "Analyzes infrastructure access with service coverage gaps",
-    keywords: ["accessibility", "mapping", "services", "urban", "regional", "planning", "infrastructure"],
-    url: "https://gh.space.gov.rw/portal/apps/experiencebuilder/experience/?id=70a0ef22c5ea4bd4ab4c1ad5f3d1489a"
-  },
-  {
-    id: 4,
-    title: "Informal Settlement Mapping and Monitoring App",
-    category: "Housing",
-    image: "/images/informal3.jpg",
-    description: "Real-Time tracking of informal settlement distribution and growth monitoring",
-    keywords: ["informal", "settlement", "mapping", "monitoring", "urban", "development", "infrastructure"],
-    url: "https://gh.space.gov.rw/portal/apps/dashboards/7cc82c4014c4402c93bb3920e05f3d52"
-  }
-]
+import { ArrowLeft, MapPin } from "lucide-react"
+import CategorySignIn from "@/components/category-sign-in"
 
 export default function InfrastructureApps() {
-  const [searchQuery, setSearchQuery] = useState('')
-  const [viewMode, setViewMode] = useState('grid') // 'grid' or 'list'
-
-  // Simplified search function - only searches titles/names
-  const searchApps = useCallback((query: string) => {
-    if (!query.trim()) return infrastructureApps
-
-    const searchTerm = query.toLowerCase()
-    
-    return infrastructureApps.filter(app => 
-      app.title.toLowerCase().includes(searchTerm)
-    )
-  }, [])
-
-  // Memoized filtered applications with title-only search
-  const filteredApps = useMemo(() => {
-    return searchApps(searchQuery)
-  }, [searchQuery, searchApps])
-
-  const clearSearch = useCallback(() => {
-    setSearchQuery('')
-  }, [])
-
-  const handleSearchChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value)
-  }, [])
-
-  const handleLaunchApp = useCallback((app: { id: number; title: string; category: string; image: string; description: string; keywords: string[]; url: string }) => {
-    // Open the application in a new tab
-    window.open(app.url, '_blank', 'noopener,noreferrer')
-  }, [])
-
-  const handleCardClick = useCallback((app: { id: number; title: string; category: string; image: string; description: string; keywords: string[]; url: string }) => {
-    // Make the entire card clickable - launches the app
-    handleLaunchApp(app)
-  }, [handleLaunchApp])
-
-  const handleBackToHome = useCallback(() => {
-    // Navigate back to home (replace with your routing logic)
-    console.log('Navigate to home')
-    window.history.back()
-  }, [])
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       {/* Header */}
       <div className="relative h-64 overflow-hidden">
         <img
-          src="/geohub/images/Infrastructure.jpg"
+          src={assetPath("/images/Infrastructure.jpg")}
           alt="Infrastructure"
           className="w-full h-full object-cover"
         />
@@ -133,35 +49,11 @@ export default function InfrastructureApps() {
               </div>
             </div>
             <div className="relative">
-              <img src="/images/proj-2.jpeg" alt="Infrastructure" width={600} height={400} className="rounded-lg shadow-2xl" />
+              <img src={assetPath("/images/proj-2.jpeg")} alt="Infrastructure" width={600} height={400} className="rounded-lg shadow-2xl" />
             </div>
           </div>
         </div>
-        {/* Applications Grid */}
-        <div className="mb-12">
-          <h3 className="text-2xl font-bold text-white mb-8">Available Applications</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredApps.map((app, index) => (
-              <Card key={index} className="bg-slate-800/50 border-slate-700 hover:bg-slate-800/70 transition-colors flex flex-col h-full">
-                <div className="relative h-48 overflow-hidden rounded-t-lg">
-                  <img src={app.image} alt={app.title} className="w-full h-full object-cover" />
-                  <div className="absolute top-4 right-4">
-                    <span className="px-2 py-1 text-xs font-medium bg-sky-500/20 text-sky-400 border border-sky-500/30 rounded-full">{app.category}</span>
-                  </div>
-                </div>
-                <CardHeader className="flex-1">
-                  <CardTitle className="text-white">{app.title}</CardTitle>
-                  <CardDescription className="text-slate-300">{app.description}</CardDescription>
-                </CardHeader>
-                <CardContent className="mt-auto">
-                  <button onClick={() => handleLaunchApp(app)} className="w-full bg-sky-600 hover:bg-sky-700 text-white px-4 py-2 rounded-lg flex items-center justify-center">
-                    <ExternalLink className="h-4 w-4 mr-2" />Open Application
-                  </button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
+        <CategorySignIn slug="infrastructure" title="Infrastructure" />
       </div>
     </div>
   )

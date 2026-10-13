@@ -1,66 +1,16 @@
-"use client"
-
-import { useState, useMemo, useCallback } from "react"
-import { Search, ArrowLeft, ExternalLink, Grid, List, X, MapPin, Star, Users, Camera, Map, Navigation } from "lucide-react"
+import { assetPath } from "@/lib/utils"
+import { ArrowLeft, MapPin } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link" 
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card"
-
-// Tourism application data
-const tourismApps = [
-  {
-    id: 2,
-    title: "Average Land Cover Dynamics",
-    category: "Land Management",
-    image: "/images/Land6.png",
-    description: "A comprehensive dashboard for analyzing and visualizing land cover dynamics across Rwanda, utilizing high-resolution satellite imagery and GIS technology.",
-    keywords: ["land", "parcel", "management", "GIS"],
-    link: "https://gh.space.gov.rw/portal/apps/dashboards/1dbaae64924b4f7696272d9d503a94f1",
-  }
-
-]
+import CategorySignIn from "@/components/category-sign-in"
 
 export default function LandApps() {
-  const [searchQuery, setSearchQuery] = useState('')
-  const [viewMode, setViewMode] = useState('grid') // 'grid' or 'list'
-
-  // Function to handle launching applications
-  const handleLaunchApp = useCallback((link: string) => {
-    if (link) {
-      window.open(link, '_blank', 'noopener,noreferrer')
-    }
-  }, [])
-
-  // Simplified search function - only searches titles/names
-  const searchApps = useCallback((query: string) => {
-    if (!query.trim()) return tourismApps
-
-    const searchTerm = query.toLowerCase()
-    
-    return tourismApps.filter(app => 
-      app.title.toLowerCase().includes(searchTerm)
-    )
-  }, [])
-
-  // Memoized filtered applications with title-only search
-  const filteredApps = useMemo(() => {
-    return searchApps(searchQuery)
-  }, [searchQuery, searchApps])
-
-  const clearSearch = useCallback(() => {
-    setSearchQuery('')
-  }, [])
-
-  const handleSearchChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value)
-  }, [])
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       {/* Header */}
       <div className="relative h-64 overflow-hidden">
         <Image
-          src="/geohub/images/land3.jpg"
+          src={assetPath("/images/land3.jpg")}
           alt="Land Management"
           fill
           className="object-cover"
@@ -101,35 +51,11 @@ export default function LandApps() {
               </div>
             </div>
             <div className="relative">
-              <Image src="/images/land4.jpg" alt="Land" width={600} height={400} className="rounded-lg shadow-2xl" />
+              <Image src={assetPath("/images/land4.jpg")} alt="Land" width={600} height={400} className="rounded-lg shadow-2xl" />
             </div>
           </div>
         </div>
-        {/* Applications Grid */}
-        <div className="mb-12">
-          <h3 className="text-2xl font-bold text-white mb-8">Available Applications</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredApps.map((app, index) => (
-              <Card key={index} className="bg-slate-800/50 border-slate-700 hover:bg-slate-800/70 transition-colors flex flex-col h-full">
-                <div className="relative h-48 overflow-hidden rounded-t-lg">
-                  <img src={app.image} alt={app.title} className="w-full h-full object-cover" />
-                  <div className="absolute top-4 right-4">
-                    <span className="px-2 py-1 text-xs font-medium bg-sky-500/20 text-sky-400 border border-sky-500/30 rounded-full">{app.category}</span>
-                  </div>
-                </div>
-                <CardHeader className="flex-1">
-                  <CardTitle className="text-white">{app.title}</CardTitle>
-                  <CardDescription className="text-slate-300">{app.description}</CardDescription>
-                </CardHeader>
-                <CardContent className="mt-auto">
-                  <button onClick={() => handleLaunchApp(app.link)} className="w-full bg-sky-600 hover:bg-sky-700 text-white px-4 py-2 rounded-lg flex items-center justify-center">
-                    <ExternalLink className="h-4 w-4 mr-2" />Open Application
-                  </button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
+        <CategorySignIn slug="land" title="Land Management" />
       </div>
     </div>
   )

@@ -1,3 +1,4 @@
+import { assetPath } from "@/lib/utils"
 import Image from "next/image";
 
 export default function CategoryHeroCard({ title, image, onClick }: {
@@ -9,7 +10,7 @@ export default function CategoryHeroCard({ title, image, onClick }: {
     <div className="relative w-full h-screen flex items-center justify-center">
       {/* Background Image */}
       <Image
-        src={`/geohub${image}`}
+        src={assetPath(image)}
         alt={title}
         fill
         className="object-cover z-0"

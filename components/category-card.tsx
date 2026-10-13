@@ -17,14 +17,13 @@ import {
   ShieldEllipsisIcon,
   Shield,
 } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { cn, assetPath, routePath } from "@/lib/utils"
 
 interface CategoryCardProps {
   title: string
   icon: string | any
   description: string
   color: string
-  applications?: number
   image?: string
   path?: string
 }
@@ -45,14 +44,14 @@ export default function CategoryCard({
   }
 
   // Use provided path or generate slug-based URL
-  const href = path ? `/geohub${path}` : `/geohub/category/${createSlug(title)}`
+  const href = routePath(path ?? `/category/${createSlug(title)}`)
 
   return (
     <Link href={href}>
       <div className="group relative flex flex-col overflow-hidden cursor-pointer transition-transform duration-300 hover:scale-105 hover:shadow-2xl w-full">
         <div className="relative w-full h-64 flex items-center justify-center">
           <Image
-            src={image ? `/geohub${image}` : "/placeholder.svg?height=400&width=600"}
+            src={image ? assetPath(image) : assetPath("/placeholder.svg?height=400&width=600")}
             alt={title}
             fill
             className="object-cover"

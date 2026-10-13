@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation"
 import FlippableCategoryCard from "@/components/flippable-category-card"
 import CategoryCarousel from "@/components/category-carousel"
 import CategoryCard from "@/components/category-card"
+import { routePath } from "@/lib/utils"
 
 const categories = [
   {
@@ -12,7 +13,6 @@ const categories = [
     icon: "plant",
     description: "Crop monitoring, soil analysis, and agricultural planning tools",
     color: "green",
-    applications: 4,
     image: "/images/agr1.jpg",
     path: "/category/agriculture",
   },
@@ -21,7 +21,6 @@ const categories = [
     icon: "building-2",
     description: "Urban planning, construction, and infrastructure management",
     color: "blue",
-    applications:4,
     image: "/images/proj-2.jpeg",
     path: "/category/infrastructure",
   },
@@ -30,7 +29,6 @@ const categories = [
     icon: "globe",
     description: "Climate data, conservation, and environmental monitoring",
     color: "teal",
-    applications: 4,
     image: "/images/prot-ar.jpg",
     path: "/category/environment",
   },
@@ -39,7 +37,6 @@ const categories = [
     icon: "shield",
     description: "Early warning systems and disaster response planning",
     color: "red",
-    applications: 6 ,
     image: "/images/dis.jpeg",
     path: "/category/disaster-management",
   },
@@ -48,8 +45,7 @@ const categories = [
     icon: "activity",
     description: "Healthcare facility mapping and epidemic tracking",
     color: "pink",
-    applications: 2,
-    image: "/images/health4.jpg",
+    image: "/images/health-hub.png",
     path: "/category/health",
   },
   {
@@ -57,7 +53,6 @@ const categories = [
     icon: "book-open",
     description: "School mapping and educational resource distribution",
     color: "indigo",
-    applications: 1,
     image: "/images/library.jpeg",
     path: "/category/education",
   },
@@ -66,7 +61,6 @@ const categories = [
     icon: "map-pin",
     description: "Land use planning and resource management",
     color: "amber",
-    applications: 1,
     image: "/images/Land5.jpg",
     path: "/category/land",
   },
@@ -75,7 +69,6 @@ const categories = [
     icon: "hard-hat",
     description: "Mineral resource mapping and mining operations",
     color: "gray",
-    applications: 1,
     image: "/images/mining1.jpg",
     path: "/category/mining",
   },
@@ -84,7 +77,6 @@ const categories = [
     icon: "landmark",
     description: "Administrative boundaries and public service mapping",
     color: "purple",
-    applications: 1,
     image: "/images/loc-gov.jpg",
     path: "/category/local-government",
   },
@@ -93,25 +85,30 @@ const categories = [
     icon: "user",
     description: "Demographic data and population distribution analysis",
     color: "orange",
-    applications: 1,
-    image: "/images/pop2.jpg",
+    image: "/images/population-infographic.jpeg",
     path: "/category/population",
   },
   {
-    title: "Finance ",
-    icon: "trending-up",
-    description: "Financial services mapping",
-    color: "yellow",
-    applications: 1,
-    image: "/images/finance.jpg",
-    path: "/category/finance",
+    title: "Water Resources",
+    icon: "droplets",
+    description: "Lakes, rivers, wetlands and water supply mapping",
+    color: "cyan",
+    image: "/images/environment-alt.jpeg",
+    path: "/category/water-resources",
+  },
+  {
+    title: "Conservation",
+    icon: "trees",
+    description: "Protected areas and wildlife monitoring",
+    color: "green",
+    image: "/images/gorilla.jpg",
+    path: "/category/conservation",
   },
   {
     title: "Trade",
     icon: "trending-up",
     description: "Market analysis and trade routes mapping",
     color: "yellow",
-    applications: 1,
     image: "/images/market.png",
     path: "/category/trade",
   },
@@ -120,26 +117,19 @@ const categories = [
 
 export default function CategorySection() {
   const router = useRouter()
-  const [filter, setFilter] = useState<'az' | 'popular'>('az')
   const [search, setSearch] = useState('')
 
-  // Filter and sort categories
+  // Filter and sort categories A-Z
   const filteredCategories = categories.filter(category =>
     category.title.toLowerCase().includes(search.toLowerCase())
   )
-  const sortedCategories = [...filteredCategories].sort((a, b) => {
-    if (filter === 'az') {
-      return a.title.localeCompare(b.title)
-    } else {
-      return (b.applications || 0) - (a.applications || 0)
-    }
-  })
+  const sortedCategories = [...filteredCategories].sort((a, b) => a.title.localeCompare(b.title))
 
   return (
     <div className="w-full min-h-screen flex flex-col justify-center items-center bg-slate-900/85 backdrop-blur-sm">
       <CategoryCarousel
         categories={categories}
-        onCardClick={(path) => router.push(path)}
+        onCardClick={(path) => router.push(routePath(path))}
       />
       {/* Category Cards Grid Below Carousel */}
       <div className="w-full mt-16 mb-8">
@@ -154,20 +144,6 @@ export default function CategorySection() {
             placeholder="Search category..."
             className="px-4 py-2 rounded-lg bg-slate-800 text-white placeholder-slate-400 border border-slate-700 focus:outline-none focus:ring-2 focus:ring-sky-500 w-full max-w-xs"
           />
-          <div className="flex gap-2">
-            <button
-              className={`px-4 py-2 rounded-lg font-semibold transition-colors ${filter === 'az' ? 'bg-sky-600 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}`}
-              onClick={() => setFilter('az')}
-            >
-              A-Z
-            </button>
-            <button
-              className={`px-4 py-2 rounded-lg font-semibold transition-colors ${filter === 'popular' ? 'bg-sky-600 text-white' : 'bg-slate-800 text-slate-300 hover:bg-slate-700'}`}
-              onClick={() => setFilter('popular')}
-            >
-              Popular
-            </button>
-          </div>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 w-full">
           {sortedCategories.map((category, idx) => (

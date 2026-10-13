@@ -1,5 +1,6 @@
 "use client"
 
+import { assetPath } from "@/lib/utils"
 import type React from "react"
 
 import { useEffect, useState } from "react"
@@ -67,7 +68,7 @@ export function SpaceBackground({
       >
         {/* Base Background Image */}
         <Image
-          src={getImageSrc() || "/placeholder.svg"}
+          src={assetPath(getImageSrc() || "/placeholder.svg")}
           alt="Space background"
           fill
           priority

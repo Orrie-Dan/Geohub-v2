@@ -1,119 +1,17 @@
-"use client"
-
-import { useState, useMemo, useCallback } from "react"
+import { assetPath } from "@/lib/utils"
 import Link from "next/link"
 import Image from "next/image"
-import { Search, ArrowLeft, ExternalLink, Grid, List, X, MapPin } from "lucide-react"
+import { ArrowLeft, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { ScrollReveal } from "@/components/scroll-reveal"
-import { ScrollProgress } from "@/components/scroll-progress"
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card"
-
-// Agricultural application data
-const agriculturalApps = [
-  {
-    id: 1,
-    title: "Agriculture Land Mapping App",
-    category: "agriculture",
-    image: "/images/agr1.jpg",
-    description: "Agricultural parcels with land area statistics, parcel counts, size classifications and planned land use",
-    keywords: ["agriculture", "mapping", "land use", "GIS", "Rwanda", "farming", "sustainability"],
-    link: "https://gh.space.gov.rw/portal/apps/experiencebuilder/experience/?id=3115eb900c3443e3b2cf0732220b4106"
-  },
-  {
-    id: 2,
-    title: "Soil Information Mapping App",
-    category: "Soil Management",
-    image: "/images/soil.jpg", 
-    description: "Monitors Soil profile nutrients and properties across the country",
-    keywords: ["soil", "health", "pH", "moisture", "nutrients", "monitoring", "farmland"],
-    link: "https://gh.space.gov.rw/portal/apps/dashboards/bb2735551a6648a1ba5ede6655b1212c"
-  },
-  {
-    id: 3,
-    title: "Agriculture Land Profiling and Crops Suitability App",
-    category: "Crop Management",
-    image: "/images/agr.jpg",
-    description: "Dive into agricultural land characteristics with soil suitability assessment, productivity potential and optimal farming zones",
-    keywords: ["crop", "disease", "detection", "diagnosis", "AI", "image recognition", "agriculture"],
-    link: "https://gh.space.gov.rw/portal/apps/dashboards/b25b3af776574dc8a7f521af5e0f3487"
-  },
-  {
-    id: 4,
-    title: "Animal Resources Distribution Mapping App",
-    category: "Animal Resources",
-    image: "/images/cow.jpg",
-    description: "Displays livestock populations and animal product outputs, production volumes and resource composition analysis",
-    keywords: ["animal", "resources", "mapping", "distribution", "GIS", "Rwanda", "livestock"],
-    link: "https://gh.space.gov.rw/portal/apps/dashboards/438e024e293142ca996a1e7ab3afa78c"
-  }
-]
+import CategorySignIn from "@/components/category-sign-in"
 
 export default function AgriculturalApps() {
-  const [searchQuery, setSearchQuery] = useState('')
-  const [viewMode, setViewMode] = useState('grid') // 'grid' or 'list'
-
-  // Enhanced function to handle launching applications with better error handling
-  const handleLaunchApp = useCallback((url: string, appTitle: string) => {
-    try {
-      // Ensure URL is valid
-      if (!url || url.trim() === '') {
-        alert(`Sorry, the link for "${appTitle}" is not available yet.`)
-        return
-      }
-      
-      // Open in new tab with security features
-      const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
-      
-      // Check if popup was blocked
-      if (!newWindow) {
-        alert('Popup blocked. Please allow popups for this site and try again.')
-      }
-    } catch (error) {
-      console.error('Error opening application:', error)
-      alert(`Error opening "${appTitle}". Please try again.`)
-    }
-  }, [])
-
-  // Function to handle "Learn More" - could navigate to detail page or show modal
-  const handleLearnMore = useCallback((app: typeof agriculturalApps[number]) => {
-    // For now, just launch the app. You can modify this to show a detailed modal or navigate to a detail page
-    handleLaunchApp(app.link, app.title)
-  }, [handleLaunchApp])
-
-  // Simplified search function - only searches titles/names
-  const searchApps = useCallback((query: string) => {
-    if (!query.trim()) return agriculturalApps
-
-    const searchTerm = query.toLowerCase()
-    
-    return agriculturalApps.filter(app => 
-      app.title.toLowerCase().includes(searchTerm) ||
-      app.description.toLowerCase().includes(searchTerm) ||
-      app.category.toLowerCase().includes(searchTerm)
-    )
-  }, [])
-
-  // Memoized filtered applications with enhanced search
-  const filteredApps = useMemo(() => {
-    return searchApps(searchQuery)
-  }, [searchQuery, searchApps])
-
-  const clearSearch = useCallback(() => {
-    setSearchQuery('')
-  }, [])
-
-  const handleSearchChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchQuery(e.target.value)
-  }, [])
-
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       {/* Header */}
       <div className="relative h-64 overflow-hidden">
         <Image
-          src="/geohub/images/agr1.jpg"
+          src={assetPath("/images/agr1.jpg")}
           alt="Agriculture"
           fill
           className="object-cover"
@@ -168,7 +66,7 @@ export default function AgriculturalApps() {
             </div>
             <div className="relative">
               <Image
-                src="/geohub/images/agr.jpg"
+                src={assetPath("/images/agr.jpg")}
                 alt="Agriculture"
                 width={600}
                 height={400}
@@ -178,46 +76,7 @@ export default function AgriculturalApps() {
           </div>
         </div>
 
-        {/* Applications Grid */}
-        <div className="mb-12">
-          <h3 className="text-2xl font-bold text-white mb-8">Available Applications</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredApps.map((app, index) => (
-              <Card key={index} className="bg-slate-800/50 border-slate-700 hover:bg-slate-800/70 transition-colors flex flex-col h-full">
-                <div className="relative h-48 overflow-hidden rounded-t-lg">
-                  <Image
-                    src={"/geohub"+app.image}
-                    alt={app.title}
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="absolute top-4 right-4">
-                    <span className="px-2 py-1 text-xs font-medium bg-sky-500/20 text-sky-400 border border-sky-500/30 rounded-full">
-                      {app.category}
-                    </span>
-                  </div>
-                </div>
-                <CardHeader className="flex-1">
-                  <CardTitle className="text-white">{app.title}</CardTitle>
-                  <CardDescription className="text-slate-300">
-                    {app.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="mt-auto">
-                  <Button 
-                    asChild 
-                    className="w-full bg-sky-600 hover:bg-sky-700"
-                  >
-                    <Link href={app.link} target="_blank" rel="noopener noreferrer">
-                      <ExternalLink className="h-4 w-4 mr-2" />
-                      Open Application
-                    </Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
+        <CategorySignIn slug="agriculture" title="Agriculture" />
       </div>
     </div>
   )

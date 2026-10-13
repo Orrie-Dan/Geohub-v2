@@ -1,10 +1,10 @@
+import { assetPath, routePath } from "@/lib/utils"
 import Link from "next/link"
 import Image from "next/image"
 import { ChevronRight, MapPin } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import CategorySection from "@/components/category-section"
 import HeroAnimation from "@/components/hero-animation"
-import FeaturedApp from "@/components/featured-app"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { ScrollProgress } from "@/components/scroll-progress"
 import ScrollDownButton from "@/components/ScrollDownButton"
@@ -15,7 +15,7 @@ export default function Home() {
       {/* Fixed Background */}
       <div className="fixed inset-0 z-0">
         <Image
-          src="/geohub/images/rw2.jpg"
+          src={assetPath("/images/rw2.jpg")}
           alt="Rwandan map"
           fill
           priority
@@ -85,53 +85,10 @@ export default function Home() {
         </section>
 
         {/* Enhanced Category Section */}
-        <section className="relative w-full min-h-screen flex flex-col justify-center items-center bg-slate-900/85 backdrop-blur-sm py-12">
+        <section id="category" className="relative w-full min-h-screen flex flex-col justify-center items-center bg-slate-900/85 backdrop-blur-sm py-12">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 drop-shadow-lg text-center">Explore Categories</h2>
           <CategorySection />
         </section>
-
-        {/* Featured Applications */}
-        <section id="category" className="relative pt-4 pb-16 sm:pt-6 sm:pb-20 lg:pt-8 lg:pb-24">
-          <div className="absolute inset-0 bg-slate-900/85 backdrop-blur-sm"></div>
-          <div className="container relative z-10 px-4 sm:px-6 lg:px-8 mx-auto">
-            <div className="mb-8 sm:mb-12 text-center">
-              <h2 className="text-3xl md:text-4xl font-bold text-white">Featured Applications</h2>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 items-stretch">
-              <ScrollReveal delay={100}>
-                <FeaturedApp
-                  title="Agriculture Land Profiling and Crops Suitability"
-                  category="Agriculture"
-                  image="/geohub/images/agr1.jpg"
-                  description="Map and analyze agricultural land use patterns across Rwanda"
-                  url="https://gh.space.gov.rw/portal/apps/dashboards/cbf25115208844b3ba46732a110e8ac1"
-                />
-              </ScrollReveal>
-              <ScrollReveal delay={200}>
-                <FeaturedApp
-                  title="Floods Profile Mapping Application"
-                  category="Disaster Management"
-                  image="/geohub/images/dis.jpeg"
-                  description="Identify areas at risk of flooding based on topography and rainfall data"
-                  url="https://gh.space.gov.rw/portal/apps/dashboards/72dd1ef9653c436392633b8e32c364d8"
-                />
-              </ScrollReveal>
-              <ScrollReveal delay={300}>
-                <FeaturedApp
-                  title="Wildlife Conservation Mapping Application"
-                  category="conservation"
-                  image="/geohub/images/gorilla.jpg"
-                  description="Monitor and protect Rwanda's wildlife through spatial analysis"
-                  url="https://gh.space.gov.rw/portal/apps/dashboards/952a60d1106545c3a034a4f3d79d9cc2"
-                />
-              </ScrollReveal>
-            </div>
-          </div>
-        </section>
-
-        
-        
 
         {/* Footer */}
         <footer className="relative bg-slate-950/95 text-slate-400 py-8 sm:py-12 overflow-hidden">
@@ -166,7 +123,7 @@ export default function Home() {
                   </li>
                   <li>
                     <Link href="#category" className="hover:text-sky-400 flex items-center gap-1">
-                      <span className="star-icon animate-twinkle" aria-label="Star">✨</span> Applications
+                      <span className="star-icon animate-twinkle" aria-label="Star">✨</span> Categories
                     </Link>
                   </li>
                 </ul>
@@ -177,17 +134,17 @@ export default function Home() {
                 </h3>
                 <ul className="space-y-2 text-sm">
                   <li>
-                    <Link href="category/agriculture" className="hover:text-sky-400 flex items-center gap-1">
+                    <Link href={routePath("/category/agriculture")} className="hover:text-sky-400 flex items-center gap-1">
                       <span className="star-icon animate-twinkle" aria-label="Star">✨</span> Agriculture
                     </Link>
                   </li>
                   <li>
-                    <Link href="category/infrastructure" className="hover:text-sky-400 flex items-center gap-1">
+                    <Link href={routePath("/category/infrastructure")} className="hover:text-sky-400 flex items-center gap-1">
                       <span className="star-icon animate-twinkle" aria-label="Star">✨</span> Infrastructure
                     </Link>
                   </li>
                   <li>
-                    <Link href="category/health" className="hover:text-sky-400 flex items-center gap-1">
+                    <Link href={routePath("/category/health")} className="hover:text-sky-400 flex items-center gap-1">
                       <span className="star-icon animate-twinkle" aria-label="Star">✨</span> Health
                     </Link>
                   </li>
